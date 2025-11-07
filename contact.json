@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Technical Secretary",
+      "sub": "",
+      "name": "Hrishikesh Das",
+      "ph": ""
+    },
+    {
+      "id": "2",
+      "title": "",
+      "sub": "",
+      "name": "",
+      "ph": ""
+    },
+    {
+      "id": "3",
+      "title": "",
+      "sub": "",
+      "name": "",
+      "ph": ""
+    },
+    {
+      "id": "4",
+      "title": "",
+      "sub": "",
+      "name": "",
+      "ph": ""
+    }
+  ]
+}
