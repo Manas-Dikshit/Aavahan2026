@@ -45,30 +45,7 @@ export default function Header() {
             toggled={isOpen}
           />
         </div>
-        <Link className="flex flex-row gap-4 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 hover:scale-110 z-50 transition duration-300  ease-in-out" href="/">
-          <Image
-            src="/TIU.svg"
-            width={52}
-            height={52}
-            alt="TIU_Logo"
-            className="rounded-full"
-          />
-          <Image
-            src="/25_logo.svg"
-            width={60}
-            height={60}
-            alt="25th year"
-            className=""
-          />
-          <Image
-            src="/tbit.svg"
-            width={50}
-            height={50}
-            alt="TBIT_logo"
-            className=""
-          />
-        </Link>
-
+        
         <button className="px-11 py-3 bg-main_primary text-white font-semibold font-clash rounded-md shadow-lg hover:bg-white  hover:text-main_primary transition-colors duration-300 mr-5 hidden xl:block">
           <a href="/Brochure.pdf" download> BROCHURE </a>
         </button>
@@ -77,7 +54,7 @@ export default function Header() {
 
       {isOpen && (
         <motion.div
-          className="fixed top-0 menuPop left-0 w-[80vw] max-w-[420px] md:w-[65vh] h-screen md:h-[95vh] md:ml-8 md:my-4 bg-black z-[26] backdrop-blur-sm rounded-xl border-[2px] border-gray/40"
+          className="fixed top-0 menuPop left-0 w-[80vw] max-w-[400px] md:w-[50vh] h-screen md:h-[100vh] md:ml-8 md:my-4 bg-black z-[26] backdrop-blur-sm rounded-xl border-[2px] border-gray/40"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -89,14 +66,14 @@ export default function Header() {
                 color="white"
                 label="Show menu"
                 direction="right"
-                size={50}
+                size={60}
                 rounded={true}
                 toggle={setOpen}
                 toggled={isOpen}
               />
               <div className="ml-4 border-l-[1.5px] border-gray/40 h-full"></div>
             </div>
-            <div className="text-4xl sm:text-5xl font-clash font-black flex flex-col mt-10 ml-6 md:mt-12 gap-4">
+            <div className="text-2xl sm:text-3xl font-clash font-black flex flex-col mt-10 ml-6 md:mt-12 gap-4">
               {/* Reordered navigation with larger touch targets */}
               <div className="relative bg-main_primary text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
                 <Navlink name={"HOME"} link={"/"} setToggle={setOpen} />
