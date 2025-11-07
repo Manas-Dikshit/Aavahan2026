@@ -10,7 +10,8 @@ function Navlink(
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
 
-        element.current.onmouseover = event => {
+        if (element.current) {
+            element.current.onmouseover = event => {
             let iteration = 0;
             clearInterval(interval);
             interval = setInterval(() => {
@@ -29,11 +30,12 @@ function Navlink(
                 iteration += 1 / 3;
             }, 30);
         }
+        }
     }, [])
 
     return (
         <div>
-            <Link href={link} ref={element} data-value={name} onClick={() => setToggle && setToggle(true)}>
+            <Link href={link} ref={element} data-value={name} onClick={() => setToggle && setToggle(false)} className="block">
                 {name}
             </Link>
         </div>

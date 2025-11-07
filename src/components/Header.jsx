@@ -77,7 +77,7 @@ export default function Header() {
 
       {isOpen && (
         <motion.div
-          className="fixed top-0 menuPop left-0 w-[65vh] h-screen md:h-[95vh] md:ml-8 md:my-4 bg-black z-[26] backdrop-blur-sm rounded-xl border-[2px] border-gray/40"
+          className="fixed top-0 menuPop left-0 w-[80vw] max-w-[420px] md:w-[65vh] h-screen md:h-[95vh] md:ml-8 md:my-4 bg-black z-[26] backdrop-blur-sm rounded-xl border-[2px] border-gray/40"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -96,52 +96,51 @@ export default function Header() {
               />
               <div className="ml-4 border-l-[1.5px] border-gray/40 h-full"></div>
             </div>
-            <div className="text-5xl font-clash font-black flex flex-col mt-14 ml-8 md:mt-12 gap-4 ">
-              <div className="relative bg-main_primary text-white w-fit text-left pl-2 pr-4 py-1 rounded-[4px]">
+            <div className="text-4xl sm:text-5xl font-clash font-black flex flex-col mt-10 ml-6 md:mt-12 gap-4">
+              {/* Reordered navigation with larger touch targets */}
+              <div className="relative bg-main_primary text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
                 <Navlink name={"HOME"} link={"/"} setToggle={setOpen} />
-                <p className="absolute right-[-2rem] top-[2px] text-[8px] font-bold text-main_primary">
-                  PAGE <br /> 01
-                </p>
+                <p className="absolute right-4 top-3 text-xs font-bold text-main_primary">PAGE 01</p>
               </div>
-              <div className="relative hackNav hover:bg-white hover:text-black text-white w-fit text-left pl-2 pr-4 py-1 rounded-[4px]">
+
+              <div className="relative hackNav hover:bg-white hover:text-black text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
                 <Navlink name={"EVENTS"} link={"/events"} setToggle={setOpen} />
-                <p className="absolute right-[-2rem] top-[2px] text-[8px] font-bold text-transparent navPageNo">
-                  PAGE <br /> 02
-                </p>
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 02</p>
               </div>
-              <div className="relative hackNav hover:bg-white hover:text-black text-white w-fit text-left pl-2 pr-4 py-1 rounded-[4px]">
+
+              <div className="relative hackNav hover:bg-white hover:text-black text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
                 <Navlink name={"ABOUT"} link={"/#about"} setToggle={setOpen} />
-                <p className="absolute right-[-2rem] top-[2px] text-[8px] font-bold text-transparent navPageNo">
-                  PAGE <br /> 03
-                </p>
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 03</p>
               </div>
-              <div className="relative hackNav hover:bg-white hover:text-black text-white w-fit text-left pl-2 pr-4 py-1 rounded-[4px]">
-                <Navlink name={"FAQ"} link={"/#faq"} setToggle={setOpen} />
-                <p className="absolute right-[-2rem] top-[2px] text-[8px] font-bold text-transparent navPageNo">
-                  PAGE <br /> 04
-                </p>
-              </div>
-              <div className="relative hackNav hover:bg-white hover:text-black text-white w-fit text-left pl-2 pr-4 py-1 rounded-[4px]">
+
+              <div className="relative hackNav hover:bg-white hover:text-black text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
                 <Navlink name={"TEAMS"} link={"/teams"} setToggle={setOpen} />
-                <p className="absolute right-[-2rem] top-[2px] text-[8px] font-bold text-transparent navPageNo">
-                  PAGE <br /> 05
-                </p>
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 04</p>
               </div>
-              <div className="relative hackNav hover:bg-white hover:text-black text-white w-fit text-left pl-2 pr-4 py-1 rounded-[4px]">
+
+              <div className="relative hackNav hover:bg-white hover:text-black text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
                 <Navlink name={"GALLERY"} link={"/gallery"} setToggle={setOpen} />
-                <p className="absolute right-[-2rem] top-[2px] text-[8px] font-bold text-transparent navPageNo">
-                  PAGE <br /> 06
-                </p>
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 05</p>
               </div>
-              <div className="relative hackNav hover:bg-white hover:text-black text-white w-fit text-left pl-2 pr-4 py-1 rounded-[4px]">
-                <Navlink
-                  name={"CONTACT"}
-                  link={"/contact"}
-                  setToggle={setOpen}
-                />
-                <p className="absolute right-[-2rem] top-[2px] text-[8px] font-bold text-transparent navPageNo">
-                  PAGE <br /> 07
-                </p>
+
+              <div className="relative hackNav hover:bg-white hover:text-black text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
+                <Navlink name={"MERCHANDISE"} link={"/#merchandise"} setToggle={setOpen} />
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 06</p>
+              </div>
+
+              <div className="relative hackNav hover:bg-white hover:text-black text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
+                <Navlink name={"SPONSORS"} link={"/#sponsors"} setToggle={setOpen} />
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 07</p>
+              </div>
+
+              <div className="relative hackNav hover:bg-white hover:text-black text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
+                <Navlink name={"FAQ"} link={"/#faq"} setToggle={setOpen} />
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 08</p>
+              </div>
+
+              <div className="relative hackNav hover:bg-white hover:text-black text-white w-full text-left pl-4 pr-6 py-3 rounded-md">
+                <Navlink name={"CONTACT"} link={"/contact"} setToggle={setOpen} />
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 09</p>
               </div>
             </div>
           </div>
@@ -150,3 +149,4 @@ export default function Header() {
     </>
   );
 }
+

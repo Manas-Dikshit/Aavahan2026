@@ -18,6 +18,8 @@ import EventSlider from "@/components/EventSlider";
 import Marque1 from "@/components/Marque1";
 import School from "@/components/School";
 import Image from "next/image";
+import Merchandise from "@/components/Merchandise";
+import SponsorsSection from "@/components/SponsorsSection";
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -81,6 +83,14 @@ const Home = () => {
 
       <section id="faq">
         <Faq />
+      </section>
+
+      <section id="merchandise">
+        <Merchandise />
+      </section>
+
+      <section id="sponsors">
+        <SponsorsSection />
       </section>
 
       <Map />
