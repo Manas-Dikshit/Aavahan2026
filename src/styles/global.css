@@ -83,6 +83,53 @@ progress::-webkit-progress-value {
   }
 }
 
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.sponsor-scroll {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.sponsor-scroll:hover .sponsor-content {
+  animation-play-state: paused;
+}
+
+.sponsor-content {
+  display: flex;
+  animation: marquee-left 30s linear infinite;
+  gap: 2rem;
+}
+
+.sponsor-content.reverse {
+  animation: marquee-right 30s linear infinite;
+}
+
+.sponsor-content > * {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make the animation smoother on mobile */
+@media (max-width: 768px) {
+  .sponsor-content,
+  .sponsor-content.reverse {
+    animation-duration: 40s;
+  }
+}
+
 .flex-card-container {
   margin: 0 10px 0 0;
   height: 100%;

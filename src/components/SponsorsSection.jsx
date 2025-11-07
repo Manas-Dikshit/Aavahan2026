@@ -3,14 +3,28 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function SponsorsSection() {
-  const sponsors = [
-    {
-      name: "TIU",
-      image: "/TIU.svg",
-      tier: "title",
-    },
-    // Add more sponsors here
-  ];
+  const topRow = {
+    direction: "left",
+    logos: [
+      { src: "/sponsor-logos/1.png", alt: "Sponsor 1", width: 180 },
+      { src: "/sponsor-logos/2.png", alt: "Sponsor 2", width: 180 },
+      { src: "/sponsor-logos/3.png", alt: "Sponsor 3", width: 180 },
+      { src: "/sponsor-logos/4.png", alt: "Sponsor 4", width: 180 },
+      { src: "/sponsor-logos/5.png", alt: "Sponsor 5", width: 180 },
+    ]
+  };
+  
+  const bottomRow = {
+    direction: "right",
+    logos: [
+      { src: "/sponsor-logos/6.png", alt: "Sponsor 6", width: 180 },
+      { src: "/sponsor-logos/7.png", alt: "Sponsor 7", width: 180 },
+      { src: "/sponsor-logos/8.png", alt: "Sponsor 8", width: 180 },
+      { src: "/sponsor-logos/9.png", alt: "Sponsor 9", width: 180 },
+      { src: "/sponsor-logos/10.png", alt: "Sponsor 10", width: 180 },
+      { src: "/sponsor-logos/11.png", alt: "Sponsor 11", width: 180 },
+    ]
+  };
 
   return (
     <div className="min-h-screen py-20 px-4 bg-gradient-to-b from-transparent to-primary">
@@ -25,37 +39,63 @@ export default function SponsorsSection() {
         </motion.h2>
 
         <div className="space-y-16">
-          {/* Title Sponsors */}
+          {/* Top Row Sponsors */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-8"
           >
-            <h3 className="text-3xl font-clash font-bold text-main_primary text-center">TITLE SPONSORS</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-              {sponsors
-                .filter((sponsor) => sponsor.tier === "title")
-                .map((sponsor, index) => (
+            <div className="sponsor-scroll">
+              <div className={`sponsor-content`}>
+                {/* Double the logos for seamless scroll */}
+                {[...topRow.logos, ...topRow.logos].map((logo, index) => (
                   <div
                     key={index}
-                    className="w-64 h-64 bg-black/30 backdrop-blur-sm rounded-xl border-[2px] border-gray/40 p-4 hover:border-main_primary transition-colors duration-300 flex flex-col items-center justify-center group"
+                    className="mx-8 my-4 p-4 hover:scale-110 transition-transform duration-300"
                   >
-                    <div className="w-48 h-48 relative">
+                    <div className="relative" style={{ width: logo.width, height: logo.width * 0.6 }}>
                       <Image
-                        src={sponsor.image}
+                        src={logo.src}
+                        alt={logo.alt}
                         fill
-                        alt={sponsor.name}
-                        className="object-contain group-hover:scale-110 transition-transform duration-300"
+                        className="object-contain transition-all duration-300"
                       />
                     </div>
-                    <p className="mt-4 text-white font-clash font-bold">{sponsor.name}</p>
                   </div>
                 ))}
+              </div>
             </div>
           </motion.div>
 
-          {/* Add more tiers as needed */}
+          {/* Bottom Row Sponsors */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="space-y-8"
+          >
+            <div className="sponsor-scroll">
+              <div className="sponsor-content reverse">
+                {/* Double the logos for seamless scroll */}
+                {[...bottomRow.logos, ...bottomRow.logos].map((logo, index) => (
+                  <div
+                    key={index}
+                    className="mx-8 my-4 p-4 hover:scale-110 transition-transform duration-300"
+                  >
+                    <div className="relative" style={{ width: logo.width, height: logo.width * 0.6 }}>
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        fill
+                        className="object-contain transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
 
           {/* Become a Sponsor */}
           <motion.div
