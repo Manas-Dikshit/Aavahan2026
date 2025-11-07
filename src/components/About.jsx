@@ -45,45 +45,40 @@ export default function About() {
       </div>
 
       <div className="font-chakra py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 space-y-4 sm:space-y-6 md:space-y-8">
-        <span ref={aboutb2b} className="text-sm sm:text-base md:text-lg lg:text-xl text-white font-medium block">
-          <b>AAVAHAN26</b>, the annual cultural fest of our college Techno Bengal
-          Institute of Technology, is more than just a celebration of culture and
-          creativity; it is a legacy of innovation, artistic expression, and
-          collaboration that has been thriving since <b>2006.</b> What began as a modest
-          initiative has grown into a prestigious platform where aspiring performers,
-          creators, and organizers come together to showcase their talents and ideas.
+        <span
+          ref={aboutb2b}
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-white font-medium block leading-relaxed tracking-wide"
+        >
+          <b>AAVAHAN</b> is the annual cultural fest of <b>Sambalpur University Institute of Information Technology (SUIIT), Jyoti Vihar, Burla</b> — celebrated with great enthusiasm and participation from students and professionals across the region. The event showcases <b>talent, innovation, and creativity</b> through various competitions, workshops, and performances.
           <br className="my-4" />
-          Each edition of <b>AAVAHAN26</b> brings with it a fresh wave of energy and
-          purpose — from electrifying cultural nights and performances to engaging
-          workshops and community events. The fest provides students with an
-          opportunity not only to showcase their talents but also to explore new
-          creative formats, share experiences, and connect with like-minded peers.
+          Over the years, <b>AAVAHAN</b> has become a much-anticipated event, drawing a large audience and creating <b>memorable experiences</b>. It expresses the <b>spectrums of joy and happiness</b> combined with powerful organizational acumen and <b>celebrity nights</b> on the SUIIT campus.
           <br className="my-4" />
-          More than a cultural fest, <b>AAVAHAN26</b> represents the spirit of our
-          college — a space where boundaries are pushed, performances come to life,
-          and a strong sense of community is built. It continues to inspire and
-          evolve, driven by the passion and dedication of students, faculty, and
-          organizers who make each year better than the last.
+          Every year, this festival welcomes <b>thousands of students</b> — both technical and non-technical — from all over Odisha and beyond, providing an opportunity to experience and enjoy the <b>rich culture of Western Odisha</b>.
+          <br className="my-4" />
+          What started in <b>2014</b> as a simple college function has grown to earn a strong reputation across Odisha in just a decade. As <b>AAVAHAN</b> approaches its <b>13th edition</b>, it continues to set its vision higher — celebrating the <b>15 years of excellence</b> of SUIIT and striving to reach new horizons of creativity, unity, and cultural brilliance.
         </span>
       </div>
 
+
       <div className="absolute font-clash font-bold text-white">
         <span className="flex gap-4 sm:gap-6 text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[5.5rem] text-turquise">
-          About <span className="text-white"><Navlink name={"Techno BIT"} link={"/#"} /></span>
+          About <span className="text-white"><Navlink name={"SUIIT"} link={"/#"} /></span>
         </span>
       </div>
 
       <div ref={aboutbit} className="flex flex-col xl:flex-row items-center gap-4 sm:gap-6 md:gap-8  mt-[4rem] sm:mt-[4rem] md:mt-[5rem] lg:mt-[6rem] xl:mt-[7rem]">
-        <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-chakra font-medium">
-          <b>Techno Bengal Institute of Technology</b>, formerly known as{" "}
-          <b>Bengal Institute of Technology</b>, was established in 2000 with four
-          AICTE-approved courses. Currently, it offers four undergraduate and one
-          postgraduate course. The college is approved by AICTE and affiliated with
-          the West Bengal University of Technology (WBUT). Located on Basanti
-          Highway, a few kilometers from downtown Kolkata, the institute is set in a
-          lush, green, picturesque environment, providing a peaceful atmosphere while
-          still offering the conveniences of city life.
+        <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-chakra font-medium leading-relaxed tracking-wide">
+          <b>Sambalpur University Institute of Information Technology (SUIIT)</b> is a{" "}
+          <b>Constituent Autonomous Unit of Sambalpur University</b> in the line of India’s
+          premier <b>IIITs</b>, <b>Approved by AICTE</b> and <b>Accredited Grade A by NAAC</b>.
+          <br className="my-2" />
+          Guided by the motto — <b>“Leveraging Technology • Inspiring Innovation • Flourishing Mankind”</b> — SUIIT strives to nurture excellence in technology, research, and human development.
+          <br className="my-4" />
+          Established with the vision of becoming a hub of innovation and interdisciplinary learning, SUIIT offers a blend of <b>technical education, research-driven culture, and holistic growth</b>. The institute empowers students to push boundaries, explore emerging technologies, and contribute meaningfully to society.
+          <br className="my-4" />
+          Nestled in the serene campus of <b>Sambalpur University, Jyoti Vihar, Burla</b>, SUIIT provides a dynamic environment where academic brilliance meets creativity and collaboration. With a commitment to <b>quality education and technological advancement</b>, it continues to shape the next generation of innovators, leaders, and changemakers.
         </p>
+
 
         <video src="/b2b.mp4" autoPlay loop muted
           className="w-full md:w-full lg:w-full xl:w-[28rem] h-[18rem] md:h-[20rem] xl:h-[18rem] object-cover rounded-2xl border-2 border-gray/80"></video>

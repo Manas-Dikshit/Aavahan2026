@@ -72,7 +72,7 @@ function Hero() {
 
         <div className="text-white flex flex-col pt-[2rem] uppercase font-extrabold md:ml-[1rem] lg:ml-[2rem] px-5 ">
           <h1 ref={title} className="font-chakra sm:text-2xl opacity-0">
-            TECHNO BENGAL INSTITUTE OF TECHNOLOGY
+            SAMBALPUR UNIVERSITY INSTITUTE OF INFORMATION TECHNOLOGY
           </h1>
           <h1 ref={title1} className="sm:text-2xl opacity-0 font-chakra">
             presents

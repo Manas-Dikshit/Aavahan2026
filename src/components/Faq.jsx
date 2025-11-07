@@ -10,7 +10,7 @@ export default function Faq() {
     const faqs = [
     {
       question: "What is AAVAHAN26 ?",
-      answer: "AAVAHAN26 is the annual cultural fest of our college Techno Bengal Institute of Technology, first launched in 2006. It brings together students, performers, and creators to celebrate, learn, and explore across a variety of cultural and creative events."
+      answer: "AAVAHAN26 is the annual cultural fest of our college Sambalpur University Institute Of Information Technology, first launched in 2006. It brings together students, performers, and creators to celebrate, learn, and explore across a variety of cultural and creative events."
     },
     {
       question: "What are the prerequisites for AAVAHAN26 ?",

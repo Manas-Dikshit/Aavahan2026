@@ -48,7 +48,7 @@ const Home = () => {
           className="hidden xl:block italic relative w-full text-center top-[7rem]"
         >
           <p className="text-white pl-[1.5rem] top-[6rem] uppercase font-clash font-bold text-[2.5rem] tracking-wide">
-            TECHNO BENGAL INSTITUTE OF TECHNOLOGY
+            SAMBALPUR UNIVERSITY INSTITUTE OF INFORMATION TECHNOLOGY
           </p>
           <p className="text-white font-clash text-xl">PRESENTS</p>
           <div className="flex justify-center mt-5">
