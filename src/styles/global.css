@@ -10,6 +10,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Accessible focus outlines for keyboard and touch accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #9747FF;
+  outline-offset: 3px;
+}
+
 * {
   user-select: none;
 }
