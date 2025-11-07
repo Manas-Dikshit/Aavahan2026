@@ -1,37 +1,37 @@
+import React, { useState, useEffect } from "react";
 
-import React, { useState, useEffect } from 'react';
-
-export default function InitialLoader() {
+export default function AavahanMarvelLoader() {
   const [progress, setProgress] = useState(0);
-  const [loadingText, setLoadingText] = useState('INITIALIZING');
-  const [dots, setDots] = useState('');
+  const [loadingText, setLoadingText] = useState("ASSEMBLING HEROES");
+  const [dots, setDots] = useState("");
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
     const progressInterval = setInterval(() => {
-      setProgress(prev => {
+      setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressInterval);
           setIsComplete(true);
           return 100;
         }
-        return prev + Math.random() * 3;
+        return prev + Math.random() * 2.2;
       });
-    }, 50);
+    }, 60);
 
     const textInterval = setInterval(() => {
       const texts = [
-        'INITIALIZING CULTURAL FEST',
-        'LOADING EVENTS',
-        'SYNCING PERFORMANCES',
-        'PREPARING EXPERIENCE',
-        'ALMOST READY'
+        "ASSEMBLING HEROES",
+        "CHARGING ARC REACTOR",
+        "SUMMONING THOR’S STORM",
+        "CALLING THE AVENGERS",
+        "PREPARING AAVAHAN EXPERIENCE",
+        "POWERING UP SHIELD SYSTEMS",
       ];
       setLoadingText(texts[Math.floor(Math.random() * texts.length)]);
     }, 1800);
 
     const dotsInterval = setInterval(() => {
-      setDots(prev => prev.length >= 3 ? '' : prev + '.');
+      setDots((prev) => (prev.length >= 3 ? "" : prev + "."));
     }, 600);
 
     return () => {
@@ -42,176 +42,76 @@ export default function InitialLoader() {
   }, []);
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-soothing_black via-primary to-black flex items-center justify-center overflow-hidden">
-      {/* Elegant Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        {/* Vertical lines */}
-        {[...Array(15)].map((_, i) => (
-          <div
+    <div className="fixed inset-0 flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0b0c10] via-[#1f2833] to-[#0b0c10]">
+      {/* Hero PNG placeholders */}
+      <div className="absolute inset-0 opacity-60">
+        {[
+          { src: "/ironman.webp", x: "10%", y: "25%", size: "w-28 sm:w-40 md:w-48" },
+          { src: "/thor.webp", x: "75%", y: "30%", size: "w-28 sm:w-40 md:w-48" },
+          { src: "/captain.webp", x: "50%", y: "70%", size: "w-32 sm:w-44 md:w-52" },
+          { src: "/hulk.webp", x: "15%", y: "65%", size: "w-32 sm:w-44 md:w-52" },
+          { src: "/blackwidow.png", x: "80%", y: "55%", size: "w-24 sm:w-36 md:w-44" },
+        ].map((hero, i) => (
+          <img
             key={i}
-            className="absolute w-px bg-gradient-to-b from-main_primary to-transparent animate-pulse"
+            src={hero.src}
+            alt="hero"
+            className={`absolute ${hero.size} object-contain`}
             style={{
-              left: `${Math.random() * 100}%`,
-              height: `${Math.random() * 80 + 100}px`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-        {/* Horizontal lines */}
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={`h-${i}`}
-            className="absolute h-px bg-gradient-to-r from-main_primary to-transparent animate-pulse"
-            style={{
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 80 + 100}px`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
+              left: hero.x,
+              top: hero.y,
             }}
           />
         ))}
       </div>
 
-      {/* Floating Tech Elements */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={`particle-${i}`}
-            className="absolute w-2 h-2 bg-main_primary/40 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
+      {/* Main content */}
+      <div className="relative z-10 text-center px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-widest font-clash drop-shadow-[0_0_25px_rgba(255,0,0,0.4)]">
+          AAVAHAN<span className="text-[#e62429]">-2K26</span>
+        </h1>
+        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-chakra text-blue-400 mt-3 tracking-[0.15em] sm:tracking-[0.2em]">
+          CULTURAL FEST • MARVEL EDITION
+        </h3>
 
-      {/* Main Content */}
-      <div className="relative z-10 text-center max-w-lg mx-auto px-6">
-        {/* Logo/Title Section */}
-        <div className="mb-12">
-          <div className="relative">
-            <h1 className="text-6xl md:text-7xl font-clash font-extrabold text-white leading-tight">
-              AAVAHAN26
-            </h1>
-            <div className="relative -mt-4">
-              <span className="text-5xl md:text-6xl font-clash font-black text-main_primary">
-                2025
-              </span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-clash font-bold text-white/90 tracking-wider mt-2">
-              CULTURAL FEST
-            </h3>
-          </div>
-        </div>
-
-        {/* Modern Loading Animation */}
-        <div className="relative mb-10">
-          <div className="w-40 h-40 mx-auto relative">
-            {/* Outer rotating ring */}
-            <div className="absolute inset-0 border-2 border-main_primary/30 rounded-full border-t-main_primary animate-spin"></div>
-
-            {/* Inner rotating ring */}
-            <div className="absolute inset-6 border-2 border-white/20 rounded-full border-b-white animate-spin"
-              style={{ animationDirection: 'reverse', animationDuration: '2s' }}></div>
-
-            {/* Center core with progress */}
-            <div className="absolute inset-12 bg-gradient-to-br from-main_primary to-purple-800 rounded-full flex items-center justify-center shadow-xl">
-              <div className="text-white font-clash text-lg font-bold">
-                {Math.floor(progress)}%
-              </div>
-            </div>
-
-            {/* Orbiting dots */}
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={`orbit-${i}`}
-                className="absolute w-3 h-3 bg-main_primary rounded-full animate-spin shadow-lg"
-                style={{
-                  left: '50%',
-                  top: '50%',
-                  transform: `rotate(${i * 60}deg) translateY(-85px)`,
-                  transformOrigin: '0 85px',
-                  animationDuration: '4s',
-                  animationDelay: `${i * 0.5}s`
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Enhanced Progress Bar */}
-        <div className="mb-8">
-          <div className="w-full bg-gray-800/50 rounded-full h-3 overflow-hidden backdrop-blur-sm border border-gray/20">
-            <div
-              className="h-full bg-gradient-to-r from-main_primary to-purple-600 transition-all duration-500 ease-out relative rounded-full"
-              style={{ width: `${progress}%` }}
-            >
-              <div className="absolute inset-0 bg-white/20 animate-pulse rounded-full"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-4 bg-white/40 animate-pulse rounded-full"></div>
-            </div>
-          </div>
-          <div className="flex justify-between text-xs text-gray mt-3">
-            <span className="font-chakra">Loading Experience...</span>
-            <span className="font-clash font-bold">{Math.floor(progress)}% Complete</span>
-          </div>
-        </div>
-
-        {/* Loading Status Text */}
-        <div className="mb-8">
-          <div className="text-main_primary font-clash text-base font-semibold tracking-wide">
-            {loadingText}{dots}
-          </div>
-        </div>
-
-        {/* Tech Categories */}
-        <div className="flex flex-wrap justify-center gap-3 text-xs text-gray/80 mb-6">
-          {[
-            'ARTIFICIAL INTELLIGENCE',
-            'ROBOTICS',
-            'CODING CONTESTS',
-            'WORKSHOPS',
-            'INNOVATION',
-            'GAMING'
-          ].map((tech, i) => (
-            <span
-              key={tech}
-              className="px-3 py-1 border border-gray/30 rounded-full backdrop-blur-sm bg-white/5 font-chakra tracking-wide hover:border-main_primary/50 transition-colors duration-300"
-              style={{ animationDelay: `${i * 0.4}s` }}
-            >
-              {tech}
+        {/* Energy Loader (Simplified) */}
+        <div className="relative w-40 sm:w-48 md:w-56 h-40 sm:h-48 md:h-56 mx-auto my-8">
+          <div className="absolute inset-0 rounded-full border-4 border-t-[#e62429] border-blue-600/40 animate-spin-slow"></div>
+          <div className="absolute inset-10 bg-gradient-to-br from-[#e62429] to-[#111] rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(230,36,41,0.7)]">
+            <span className="text-white text-xl sm:text-2xl font-bold font-clash">
+              {Math.floor(progress)}%
             </span>
-          ))}
+          </div>
         </div>
 
-        {/* Completion Animation */}
+        {/* Progress Bar */}
+        <div className="w-64 sm:w-80 md:w-96 mx-auto bg-gray-800/60 rounded-full h-3 sm:h-4 overflow-hidden border border-blue-500/30 mb-6">
+          <div
+            className="h-full bg-gradient-to-r from-red-600 via-blue-600 to-purple-600 transition-all duration-500 ease-out rounded-full shadow-[0_0_15px_rgba(59,130,246,0.7)]"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+
+        {/* Loading Text */}
+        <p className="text-blue-400 font-clash tracking-wide text-sm sm:text-base md:text-lg mb-4">
+          {loadingText}
+          {dots}
+        </p>
+
+        {/* Completion */}
         {isComplete && (
-          <div className="animate-pulse">
-            <div className="text-main_primary text-sm font-clash font-bold tracking-wider">
-              🚀 READY FOR INNOVATION!
-            </div>
+          <div className="text-[#e62429] text-base sm:text-lg md:text-xl font-clash font-extrabold tracking-widest animate-pulse">
+            🚀 READY TO ASSEMBLE!
           </div>
         )}
 
-        {/* Bottom Tagline */}
-        <div className="text-gray/70 text-xs font-chakra tracking-wider">
-          EXPERIENCE THE BEST OF CULTURE
+        {/* Tagline */}
+        <div className="text-gray-400 text-xs sm:text-sm font-chakra tracking-widest mt-4">
+          EXPERIENCE THE HEROIC CULTURE • AAVAHAN-2K26
         </div>
-      </div>
-
-      {/* Elegant Corner Accents */}
-      <div className="absolute top-6 left-6 w-10 h-10 border-l-2 border-t-2 border-main_primary/60 animate-pulse"></div>
-      <div className="absolute top-6 right-6 w-10 h-10 border-r-2 border-t-2 border-main_primary/60 animate-pulse"></div>
-      <div className="absolute bottom-6 left-6 w-10 h-10 border-l-2 border-b-2 border-main_primary/60 animate-pulse"></div>
-      <div className="absolute bottom-6 right-6 w-10 h-10 border-r-2 border-b-2 border-main_primary/60 animate-pulse"></div>
-
-      {/* Brand Watermark */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-gray/40 font-chakra tracking-widest">
-        AAVAHAN26 • CULTURAL FEST 2025
       </div>
     </div>
   );
-};
+}
+
+/* Add to your global CSS or Tailwind config */

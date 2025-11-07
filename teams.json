@@ -587,21 +587,21 @@
           "members": [
             {
               "id": "Dt1",
-              "name": "Hrishikesh Das",
+              "name": "Manas Ranjan Dikshit",
               "post": "Lead Developer",
-              "img": "/TeamImages/TS.jpg",
-              "insta": "https://www.instagram.com/a_boy_name_hrishi/",
-              "linkedin": "https://www.linkedin.com/in/dashrishikesh",
-              "github": "https://github.com/hrishiD-codes"
+              "img": "/team/manas.jpg",
+              "insta": "https://www.instagram.com/er_manasss01_?igsh=aXYxZXdjN3IwMzY3",
+              "linkedin": "https://www.linkedin.com/in/manas-ranjan-dikshit",
+              "github": "https://github.com/Manas-Dikshit"
             },
             {
               "id": "Dt2",
-              "name": "Subhro Mohanta",
+              "name": "Debashish Pradhan",
               "post": "Asst. Developer ",
-              "img": "/TeamImages/subhro.jpg",
-              "insta": "https://www.instagram.com/just.subhro?igsh=MTcycm43Nzc5NTlneg==",
-              "linkedin": "https://www.linkedin.com/in/subhro-mohanta/",
-              "github": "https://github.com/imSubhro"
+              "img": "/team/Debashish.jpg",
+              "insta": "https://www.instagram.com/dev_loperrr",
+              "linkedin": "https://www.linkedin.com/in/debashish608",
+              "github": "https://github.com/deba608"
             }
           ]
         }
