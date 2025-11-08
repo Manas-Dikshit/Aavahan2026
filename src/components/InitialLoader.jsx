@@ -43,7 +43,7 @@ export default function AavahanMarvelLoader() {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0b0c10] via-[#1f2833] to-[#0b0c10]">
-      {/* Hero PNG placeholders */}
+      {/* Hero PNG placeholders with subtle 3D effect */}
       <div className="absolute inset-0 opacity-60">
         {[
           { src: "/ironman.webp", x: "10%", y: "25%", size: "w-28 sm:w-40 md:w-48" },
@@ -56,35 +56,37 @@ export default function AavahanMarvelLoader() {
             key={i}
             src={hero.src}
             alt="hero"
-            className={`absolute ${hero.size} object-contain`}
+            className={`absolute ${hero.size} object-contain transform transition-all duration-500 ease-in-out hover:scale-110`}
             style={{
               left: hero.x,
               top: hero.y,
+              transform: `rotate(${Math.random() * 10 - 5}deg) scale(${Math.random() * 0.5 + 0.8})`,
             }}
           />
         ))}
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-widest font-clash drop-shadow-[0_0_25px_rgba(255,0,0,0.4)]">
+      {/* Main Content */}
+      <div className="relative z-10 text-center px-6 sm:px-10">
+        {/* Title */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-widest font-clash drop-shadow-lg transform transition-all duration-1000 ease-in-out hover:scale-105">
           AAVAHAN<span className="text-[#e62429]">-2K26</span>
         </h1>
-        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-chakra text-blue-400 mt-3 tracking-[0.15em] sm:tracking-[0.2em]">
+        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-chakra text-blue-400 mt-3 tracking-wide sm:tracking-[0.2em] transform transition-all duration-1000 ease-in-out">
           CULTURAL FEST • MARVEL EDITION
         </h3>
 
-        {/* Energy Loader (Simplified) */}
+        {/* Energy Loader with 3D Ring Animation */}
         <div className="relative w-40 sm:w-48 md:w-56 h-40 sm:h-48 md:h-56 mx-auto my-8">
           <div className="absolute inset-0 rounded-full border-4 border-t-[#e62429] border-blue-600/40 animate-spin-slow"></div>
-          <div className="absolute inset-10 bg-gradient-to-br from-[#e62429] to-[#111] rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(230,36,41,0.7)]">
+          <div className="absolute inset-10 bg-gradient-to-br from-[#e62429] to-[#111] rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(230,36,41,0.7)] transform hover:scale-110 transition-all duration-500">
             <span className="text-white text-xl sm:text-2xl font-bold font-clash">
               {Math.floor(progress)}%
             </span>
           </div>
         </div>
 
-        {/* Progress Bar */}
+        {/* Progress Bar with Smooth Gradient Animation */}
         <div className="w-64 sm:w-80 md:w-96 mx-auto bg-gray-800/60 rounded-full h-3 sm:h-4 overflow-hidden border border-blue-500/30 mb-6">
           <div
             className="h-full bg-gradient-to-r from-red-600 via-blue-600 to-purple-600 transition-all duration-500 ease-out rounded-full shadow-[0_0_15px_rgba(59,130,246,0.7)]"
@@ -92,13 +94,13 @@ export default function AavahanMarvelLoader() {
           ></div>
         </div>
 
-        {/* Loading Text */}
-        <p className="text-blue-400 font-clash tracking-wide text-sm sm:text-base md:text-lg mb-4">
+        {/* Dynamic Loading Text */}
+        <p className="text-blue-400 font-clash tracking-wide text-sm sm:text-base md:text-lg mb-4 transform transition-all duration-500 ease-in-out">
           {loadingText}
           {dots}
         </p>
 
-        {/* Completion */}
+        {/* Completion Message with Pulse Animation */}
         {isComplete && (
           <div className="text-[#e62429] text-base sm:text-lg md:text-xl font-clash font-extrabold tracking-widest animate-pulse">
             🚀 READY TO ASSEMBLE!
@@ -113,5 +115,3 @@ export default function AavahanMarvelLoader() {
     </div>
   );
 }
-
-/* Add to your global CSS or Tailwind config */
