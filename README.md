@@ -1,5 +1,5 @@
 
-# AAVAHAN26 2025 Official Website
+# AAVAHAN Official Website
 
 Welcome to the official repository for the **AAVAHAN26 2025** college fest website. This project serves as the digital platform for all information, updates, and resources related to the annual fest organized by Sambalpur University Institute Of Information Technology, Kolkata.
 
@@ -15,11 +15,11 @@ To set up the project locally:
 
 1. Clone the repository:
 	```powershell
-	git clone https://github.com/hrishiD-codes/Bits2Bytes-2025-Website.git
+	git clone https://github.com/Manas-Dikshit/Aavahan2026.git
 	```
 2. Navigate to the project directory:
 	```powershell
-	cd Bits2Bytes-2025-Website
+	cd Aavahan2026
 	```
 3. Install dependencies:
 	```powershell
@@ -49,4 +49,4 @@ For official queries, please contact the organizing committee...
 
 ---
 
-© 2025 Sambalpur University Institute Of Information Technology, Kolkata. All rights reserved.
+© 2025 Sambalpur University Institute Of Information Technology, Sambalpur. All rights reserved.
