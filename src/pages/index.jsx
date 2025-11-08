@@ -54,7 +54,7 @@ const Home = () => {
           </p>
           <p className="text-white font-clash text-xl">PRESENTS</p>
           <div className="flex justify-center mt-5">
-            <Image width={170} height={170} src="/b2b.svg" alt="b2b_logo" className="mb-3" />
+            <Image width={170} height={170} src="/Cultural Logo.svg" alt="Cultural_logo" className="mb-3" />
           </div>
         </div>
         <div>

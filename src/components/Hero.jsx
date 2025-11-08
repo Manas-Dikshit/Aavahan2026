@@ -38,7 +38,7 @@ function Hero() {
       {/* ✅ Logo */}
       <div className="flex justify-center items-center mb-6 mt-8 z-10">
         <Image
-          src="/b2b.svg"
+          src="/Cultural logo.svg"
           alt="AAVAHAN26"
           width={0}
           height={0}
