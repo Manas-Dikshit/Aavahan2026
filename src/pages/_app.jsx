@@ -78,7 +78,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="/b2b.svg" type="image/svg +xml " />
+        <link rel="shortcut icon" href="/Cultural Logo.svg" type="image/svg +xml " />
       </Head>
       <motion.div
         initial={{ opacity: 0 }}
