@@ -1,56 +1,52 @@
 "use client";
-import { useState } from "react";
-import {
-  FaInstagram,
-  FaGithub,
-  FaLinkedinIn,
-  FaFacebook,
-} from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
 import fsPromises from "fs/promises";
 import path from "path";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Team({ tabs }) {
+export default function Events({ posts, names }) {
   const [index, setIndex] = useState(0);
+  const individualPosts = posts[index];
 
   return (
     <div className="min-h-screen w-full bg-soothing_black overflow-x-hidden">
       <Head>
-        <title>AAVAHAN26 • Crew</title>
+        <title>AAVAHAN26 • Events</title>
       </Head>
 
       <Header id="navbar" />
 
-      {/* Hero Banner */}
+      {/* ✅ Hero Banner (same as Crew page) */}
       <section className="relative w-full h-[15rem] md:h-[22rem] flex flex-col items-center justify-center text-white font-clash font-black tracking-wider overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/avengers.jpg"
-            alt="Avengers Background"
+            alt="Aavahan Events Banner"
             fill
             priority
+            quality={100}
             className="object-cover object-center brightness-[0.4]"
           />
         </div>
         <div className="relative z-10 text-center">
           <h1 className="text-3xl md:text-5xl lg:text-6xl drop-shadow-lg">
-            AAVAHAN26' 2025
+            AAVAHAN’26&nbsp;2025
           </h1>
           <p className="text-2xl md:text-4xl mt-3 text-main_primary tracking-[0.3em]">
-            CREW
+            EVENTS
           </p>
         </div>
       </section>
 
-      {/* Tabs Navigation */}
+      {/* 🔹 Category Navigation */}
       <div className="w-full overflow-x-auto px-4 py-6 bg-gradient-to-b from-black/20 to-transparent">
         <div className="flex gap-3 md:gap-8 min-w-max justify-start md:justify-center">
-          {tabs.map((tab, i) => (
+          {names.map((name, i) => (
             <motion.button
               key={i}
               whileTap={{ scale: 0.95 }}
@@ -61,113 +57,71 @@ export default function Team({ tabs }) {
               }`}
               onClick={() => setIndex(i)}
             >
-              {tab.name}
+              {name}
             </motion.button>
           ))}
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* 🎯 Events Grid */}
       <main className="w-full flex justify-center pb-16 px-4 md:px-8 lg:px-20">
         <div className="max-w-7xl w-full flex flex-col gap-16">
           <AnimatePresence mode="wait">
-            {tabs[index].sections.map((section) => (
-              <motion.div
-                key={section.id}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                {/* Section Title */}
-                <h2 className="text-white font-clash uppercase font-bold text-3xl md:text-4xl pb-6 border-b border-white/10">
-                  {section.name}
-                </h2>
-
-                {/* Member Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-                  {section.members.map((member) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
+                {individualPosts.length > 0 ? (
+                  individualPosts.map((post) => (
                     <motion.div
-                      key={member.id}
+                      key={post.id}
                       whileHover={{
-                        scale: 1.04,
+                        scale: 1.05,
                         rotateX: 2,
                         rotateY: -2,
                       }}
-                      className="relative bg-[#111]/70 backdrop-blur-lg border border-white/10 rounded-xl p-5 shadow-md hover:shadow-[0_0_20px_rgba(151,71,255,0.2)] hover:border-main_primary/30 transition-all duration-300 flex flex-col"
+                      className="relative bg-[#111]/70 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden shadow-md hover:shadow-[0_0_25px_rgba(151,71,255,0.25)] hover:border-main_primary/30 transition-all duration-300 flex flex-col"
                     >
-                      {/* Top Tag */}
-                      <div className="absolute top-4 right-4 bg-main_primary/20 text-main_primary text-xs px-3 py-1 rounded-full font-chakra tracking-wide">
-                        AAVAHAN26
-                      </div>
+                      <Link href={`/events/${post.id}`}>
+                        {/* Image */}
+                        <div className="w-full h-[220px] overflow-hidden">
+                          <Image
+                            src={post.img}
+                            alt={post.title}
+                            width={400}
+                            height={400}
+                            className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                          />
+                        </div>
 
-                      {/* Image */}
-                      <div className="w-full h-[220px] overflow-hidden rounded-lg border border-white/10 mb-4">
-                        <Image
-                          src={member.img}
-                          alt={member.name}
-                          width={400}
-                          height={400}
-                          className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
-                        />
-                      </div>
-
-                      {/* Details */}
-                      <div className="text-left font-chakra mb-3">
-                        <p className="text-white/60 text-sm">{member.post}</p>
-                        <h3 className="text-white text-xl font-bold mt-1 group-hover:text-main_primary transition-colors duration-300">
-                          {member.name}
-                        </h3>
-                      </div>
-
-                      {/* Social Links */}
-                      <div className="flex gap-3 mt-auto">
-                        {member.linkedin && (
-                          <Link
-                            href={member.linkedin}
-                            target="_blank"
-                            aria-label="LinkedIn"
-                            className="bg-white/5 p-2 rounded-md hover:bg-main_primary/20 border border-white/10 hover:border-main_primary/40 transition-all"
-                          >
-                            <FaLinkedinIn className="text-white/80 hover:text-main_primary" />
-                          </Link>
-                        )}
-                        {member.insta && (
-                          <Link
-                            href={member.insta}
-                            target="_blank"
-                            aria-label="Instagram"
-                            className="bg-white/5 p-2 rounded-md hover:bg-main_primary/20 border border-white/10 hover:border-main_primary/40 transition-all"
-                          >
-                            <FaInstagram className="text-white/80 hover:text-main_primary" />
-                          </Link>
-                        )}
-                        {member.github && (
-                          <Link
-                            href={member.github}
-                            target="_blank"
-                            aria-label="GitHub"
-                            className="bg-white/5 p-2 rounded-md hover:bg-main_primary/20 border border-white/10 hover:border-main_primary/40 transition-all"
-                          >
-                            <FaGithub className="text-white/80 hover:text-main_primary" />
-                          </Link>
-                        )}
-                        {member.facebook && (
-                          <Link
-                            href={member.facebook}
-                            target="_blank"
-                            aria-label="Facebook"
-                            className="bg-white/5 p-2 rounded-md hover:bg-main_primary/20 border border-white/10 hover:border-main_primary/40 transition-all"
-                          >
-                            <FaFacebook className="text-white/80 hover:text-main_primary" />
-                          </Link>
-                        )}
-                      </div>
+                        {/* Details */}
+                        <div className="p-5 flex flex-col flex-grow justify-between text-left font-chakra">
+                          <div>
+                            <h3 className="text-xl font-bold text-white mb-2">
+                              {post.title}
+                            </h3>
+                            <p className="text-sm text-white/70 line-clamp-3">
+                              {post.desc || "Click to learn more."}
+                            </p>
+                          </div>
+                          <div className="mt-4 text-main_primary font-semibold text-sm tracking-wide">
+                            Tap to View →
+                          </div>
+                        </div>
+                      </Link>
                     </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                  ))
+                ) : (
+                  <div className="text-white text-2xl font-chakra font-semibold py-16 text-center animate-pulse">
+                    Coming Soon...
+                  </div>
+                )}
+              </div>
+            </motion.div>
           </AnimatePresence>
         </div>
       </main>
@@ -177,13 +131,16 @@ export default function Team({ tabs }) {
   );
 }
 
-/* Fetching JSON data */
+/* 🧩 Fetching JSON Data */
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), "/teams.json");
+  const filePath = path.join(process.cwd(), "/events.json");
   const jsonData = await fsPromises.readFile(filePath);
   const objectData = JSON.parse(jsonData);
 
   return {
-    props: objectData,
+    props: {
+      posts: objectData.posts,
+      names: objectData.names,
+    },
   };
 }
