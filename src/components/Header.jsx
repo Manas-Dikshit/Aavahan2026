@@ -77,9 +77,9 @@ export default function Header() {
             </div>
             <div className="text-2xl sm:text-3xl font-clash font-black flex flex-col flex-grow">
               {/* Reordered navigation with larger touch targets */}
-              <div className="relative bg-white/20 text-white w-full text-left pl-4 pr-6 py-4">
+              <div className="relative hackNav hover:bg-white/10 text-white w-full text-left pl-4 pr-6 py-4">
                 <Navlink name={"HOME"} link={"/"} setToggle={setOpen} />
-                <p className="absolute right-4 top-3 text-xs font-bold text-white">PAGE 01</p>
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 01</p>
               </div>
 
               <div className="relative hackNav hover:bg-white/10 text-white w-full text-left pl-4 pr-6 py-4">
