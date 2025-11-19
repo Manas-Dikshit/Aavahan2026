@@ -89,7 +89,8 @@ export default function Faq() {
   return (
     <div
       ref={faqContainer}
-      className="relative min-h-screen px-2 py-4 xl:px-20 bg-gradient-to-b from-[#0b0c10] via-[#1f2833] to-[#0b0c10] text-white overflow-hidden"
+      className="relative min-h-screen px-2 py-4 xl:px-20 text-white overflow-hidden"
+      style={{ backgroundColor: '#004aad' }}
     >
       {/* Cosmic Background Effect */}
       <div

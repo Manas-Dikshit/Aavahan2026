@@ -14,7 +14,8 @@ export default function Sponsors() {
 
   return (
     <motion.div
-      className="fixed top-[25vh] right-8 w-[200px] bg-black/80 backdrop-blur-sm rounded-xl border-[2px] border-gray/40 p-4 hidden lg:block"
+      className="fixed top-[25vh] right-8 w-[200px] backdrop-blur-sm rounded-xl border-[2px] border-gray/40 p-4 hidden lg:block"
+      style={{ backgroundColor: '#004aad' }}
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}

@@ -11,7 +11,7 @@ export default function EventSlider() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-fit pb-[80px] bg-gradient-to-b from-transparent to-primary mt-20">
+    <div className="flex flex-col items-center justify-center h-fit pb-[80px] mt-20" style={{ backgroundColor: '#004aad' }}>
       <h1 className="text-[2.7rem] leading-10 text-center md:text-[4rem] text-white font-clash font-bold tracking-wider">
         Shades of AAVAHAN26
       </h1>

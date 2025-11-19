@@ -1,4 +1,3 @@
-
 import { useRef, useEffect, useState } from "react";
 import Head from "next/head";
 import Header from "@/components/Header";
@@ -37,7 +36,7 @@ const Home = () => {
   const stagger = useRef(null);
 
   return (
-    <div className="bg-darkPurple h-fit">
+    <div className="h-fit" style={{backgroundColor: "#004aad"}}>
       <Head>
         <title>AAVAHAN26 2K25</title>
       </Head>
@@ -45,24 +44,11 @@ const Home = () => {
       <Header id="navbar" />
 
       <section id="hero">
-        <div
-          ref={stagger}
-          className="hidden xl:block italic relative w-full text-center top-[7rem]"
-        >
-          <p className="text-white pl-[1.5rem] top-[6rem] uppercase font-clash font-bold text-[2.5rem] tracking-wide">
-            SAMBALPUR UNIVERSITY INSTITUTE OF INFORMATION TECHNOLOGY
-          </p>
-          <p className="text-white font-clash text-xl">PRESENTS</p>
-          <div className="flex justify-center mt-5">
-            <Image width={170} height={170} src="/Cultural Logo.svg" alt="Cultural_logo" className="mb-3" />
-          </div>
-        </div>
         <div>
           <Hero />
           <Brand />
         </div>
       </section>
-
 
       {isLoaded && <Clock />}
 
@@ -76,7 +62,6 @@ const Home = () => {
         <section id="about">
           <About />
         </section>
-
       </div>
 
       <Marque2 />

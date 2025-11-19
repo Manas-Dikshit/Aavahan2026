@@ -2,7 +2,7 @@ import Countdown from "react-countdown";
 
 function Clock() {
   return (
-    <div className="w-screen flex flex-col items-center justify-center py-10 text-white font-clash">
+    <div className="w-screen flex flex-col items-center justify-center py-10 text-white font-clash" style={{ backgroundColor: '#004aad' }}>
       {/* Countdown Box */}
       <div className="flex flex-col xl:flex-row justify-center items-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-2xl shadow-2xl border border-gray-700/60 px-6 py-10 xl:px-10 xl:py-12 gap-6 xl:gap-8">
         

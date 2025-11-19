@@ -99,7 +99,8 @@ export default function MarvelMerchandise() {
   return (
     <div
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a] to-[#000] text-white overflow-hidden py-20 flex flex-col items-center justify-center"
+      className="relative w-full min-h-screen text-white overflow-hidden py-20 flex flex-col items-center justify-center"
+      style={{ backgroundColor: '#004aad' }}
     >
       {/* Cosmic shimmer background */}
       <div

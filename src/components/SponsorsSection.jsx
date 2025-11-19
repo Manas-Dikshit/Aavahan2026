@@ -22,7 +22,7 @@ export default function SponsorsSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#050B1E] py-24 px-4 md:px-8 text-white">
+    <section className="relative overflow-hidden py-24 px-4 md:px-8 text-white" style={{ backgroundColor: '#004aad' }}>
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,204,255,0.1),transparent_70%)]" />
