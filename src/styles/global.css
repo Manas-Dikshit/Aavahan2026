@@ -2,18 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;600;700&display=swap');
+
 :root {
-  --soothing-black: "#0E1111";
+  /* Fonts used by existing Tailwind config via CSS vars */
+  --font-clash-display: 'Orbitron', sans-serif; /* primary UI */
+  --font-chakra: 'Rajdhani', sans-serif;
+
+  /* Avengers-inspired color tokens */
+  --av-bg-900: #071029; /* deep navy */
+  --av-bg-800: #08162b;
+  --av-red: #D62828; /* metallic red accent */
+  --av-silver: #C5C6C7;
+  --av-neon: #00D0FF; /* subtle blue neon */
+  --av-muted: #9AA3B2;
 }
 
 html {
   scroll-behavior: smooth;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,208,255,0.03), transparent 8%),
+              linear-gradient(180deg, rgba(8,22,43,1) 0%, rgba(7,16,41,1) 100%);
+  color-scheme: dark;
 }
 
 /* Accessible focus outlines for keyboard and touch accessibility */
 a:focus-visible, button:focus-visible {
-  outline: 2px solid #9747FF;
+  outline: 3px solid var(--av-neon);
   outline-offset: 3px;
+  box-shadow: 0 0 12px rgba(0,208,255,0.18);
 }
 
 * {
@@ -42,7 +58,7 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #9747ff;
+  background-color: var(--av-red);
 }
 
 .hackNav:hover .navPageNo {
@@ -63,10 +79,12 @@ progress::-webkit-progress-value {
 }
 
 .menuPop {
-  background: url("/menu.gif");
+  /* subtle tech texture over the menu background */
+  background: linear-gradient(180deg, rgba(8,18,35,0.8), rgba(4,8,16,0.6)), url('/menu.gif');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: 1px solid rgba(0,208,255,0.06);
 }
 
 .updown {
@@ -109,6 +127,8 @@ progress::-webkit-progress-value {
   display: flex;
   animation: marquee-left 30s linear infinite;
   gap: 2rem;
+  /* subtle glow for logos on the marquee */
+  filter: drop-shadow(0 6px 18px rgba(0,208,255,0.04));
 }
 
 .sponsor-content.reverse {
@@ -121,6 +141,43 @@ progress::-webkit-progress-value {
   align-items: center;
   justify-content: center;
 }
+
+/* Arc-reactor / shield button style */
+.arc-button {
+  background: linear-gradient(180deg, rgba(214,40,40,0.95), rgba(180,24,24,0.95));
+  border-radius: 999px;
+  padding: .6rem 1.2rem;
+  color: white;
+  box-shadow: 0 6px 30px rgba(214,40,40,0.12), inset 0 -2px 8px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.arc-button:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 40px rgba(214,40,40,0.18); }
+
+/* Glass/Neon card used for many panels */
+.av-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(0,208,255,0.06);
+  backdrop-filter: blur(8px) saturate(120%);
+  border-radius: 12px;
+}
+
+/* small neon accent */
+.neon-accent { box-shadow: 0 0 18px rgba(0,208,255,0.12); border-color: rgba(0,208,255,0.12); }
+
+/* Small utility for cinematic headings */
+.cinema-head { text-shadow: 0 8px 28px rgba(0,0,0,0.6); color: var(--av-silver); }
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+/* Ensure images with transparent PNGs render without forced backgrounds */
+.transparent-logo img, .transparent-logo > span > img { background: transparent; }
 
 /* Make the animation smoother on mobile */
 @media (max-width: 768px) {
