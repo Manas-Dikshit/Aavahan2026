@@ -176,6 +176,26 @@ progress::-webkit-progress-value {
   animation: spin-slow 6s linear infinite;
 }
 
+/* Reverse slow spin */
+@keyframes spin-reverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+.animate-spin-reverse {
+  animation: spin-reverse 12s linear infinite;
+}
+
+/* Faster pulse used by loader glow */
+@keyframes pulse-fast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .6; }
+}
+.animate-pulse-fast { animation: pulse-fast 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* Loader font helpers */
+.font-sci-fi { font-family: 'Orbitron', sans-serif; }
+.font-tech { font-family: 'Rajdhani', sans-serif; }
+
 /* Ensure images with transparent PNGs render without forced backgrounds */
 .transparent-logo img, .transparent-logo > span > img { background: transparent; }
 
