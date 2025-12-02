@@ -18,8 +18,14 @@ export default function MarvelMerchandise() {
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
-    gsap.set([blastRef.current, spidermanRef.current, ...merchRefs.current], { opacity: 0 });
-    gsap.set(merchRefs.current, { y: 40 });
+    // Only animate refs that are not null
+    const blast = blastRef.current;
+    const spider = spidermanRef.current;
+    const merch = merchRefs.current.filter(Boolean);
+    if (!sectionRef.current) return;
+    if (!blast || !spider || merch.length === 0) return;
+    gsap.set([blast, spider, ...merch], { opacity: 0 });
+    gsap.set(merch, { y: 40 });
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -27,16 +33,16 @@ export default function MarvelMerchandise() {
         toggleActions: "play none none reverse",
       },
     });
-    tl.to(blastRef.current, { opacity: 1, scale: 2, duration: 0.4, ease: "power2.out" })
-      .to(blastRef.current, { opacity: 0, scale: 5, duration: 0.6, ease: "power2.in" })
+    tl.to(blast, { opacity: 1, scale: 2, duration: 0.4, ease: "power2.out" })
+      .to(blast, { opacity: 0, scale: 5, duration: 0.6, ease: "power2.in" })
       .fromTo(
-        spidermanRef.current,
+        spider,
         { opacity: 0, scale: 0.5, y: 120 },
         { opacity: 1, scale: 1, y: 0, duration: 1, ease: "elastic.out(1, 0.6)" },
         "-=0.3"
       );
     if (isMobile) {
-      tl.to(spidermanRef.current, {
+      tl.to(spider, {
         opacity: 0,
         scale: 0.7,
         y: -50,
@@ -45,7 +51,7 @@ export default function MarvelMerchandise() {
         delay: 0.8,
       })
         .to(
-          merchRefs.current,
+          merch,
           {
             opacity: 1,
             y: 0,
@@ -56,12 +62,12 @@ export default function MarvelMerchandise() {
           "-=0.2"
         );
     } else {
-      tl.to(spidermanRef.current, {
+      tl.to(spider, {
         x: -50,
         duration: 0.8,
         ease: "power2.inOut",
       }).to(
-        merchRefs.current,
+        merch,
         {
           opacity: 1,
           y: 0,
