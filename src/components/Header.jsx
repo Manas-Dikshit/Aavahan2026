@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+// import Link from "next/link";
+// import Image from "next/image";
 import { Sling as Hamburger } from "hamburger-react";
 import { motion } from "framer-motion";
 import Navlink from "@/components/Navlink";

@@ -59,7 +59,7 @@ export default function Faq() {
 
   useEffect(() => {
     // Properly encoded SVG for cosmic background
-    const svgData = encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:#ff0000;stop-opacity:0.1"/><stop offset="100%" style="stop-color:#007bff;stop-opacity:0.05"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#a)"/></svg>`);
+
 
     // Animate FAQ items on scroll
     gsap.fromTo(

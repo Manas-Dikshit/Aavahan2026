@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^10.9.1",
     "fs.promises": "^0.1.2",
     "gsap": "^3.11.5",
     "hamburger-react": "^2.5.0",
     "jquery": "^3.6.4",
-    "next": "^15.3.5",
+    "lucide-react": "^0.562.0",
+    "next": "^15.5.7",
     "react": "18.3.1",
     "react-animated-cursor": "^2.5.2",
     "react-confetti": "^6.1.0",
@@ -29,6 +32,8 @@
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^9.2.3",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss-animate": "^1.0.7",
     "vanilla-tilt": "^1.8.0"
   },
   "devDependencies": {

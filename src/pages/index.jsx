@@ -16,7 +16,7 @@ import RitModel from "@/components/RitModel";
 import EventSlider from "@/components/EventSlider";
 import Marque1 from "@/components/Marque1";
 import School from "@/components/School";
-import Image from "next/image";
+// import Image from "next/image";
 import Merchandise from "@/components/Merchandise";
 import SponsorsSection from "@/components/SponsorsSection";
 

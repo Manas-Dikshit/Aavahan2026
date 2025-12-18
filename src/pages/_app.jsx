@@ -17,6 +17,10 @@ const InitialLoader = dynamic(() => import("@/components/InitialLoader"), {
   ssr: false,
 });
 
+const SplashCursor = dynamic(() => import("@/components/SplashCursor"), {
+  ssr: false,
+});
+
 const font_chakra = Chakra_Petch({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -38,10 +42,6 @@ const font_bebas = Bebas_Neue({
 const font_clash_display = LocalFont({
   src: "../fonts/ClashDisplay-Variable.ttf",
   variable: "--font-clash-display",
-});
-
-const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
 });
 
 export default function MyApp({ Component, pageProps }) {
@@ -94,29 +94,7 @@ export default function MyApp({ Component, pageProps }) {
         >
           <Component {...pageProps} />
           <Analytics />
-
-          <AnimatedCursor
-            innerSize={12}
-            outerSize={20}
-            trailingSpeed={15}
-            color="151, 71, 255"
-            outerAlpha={0.7}
-            innerScale={1.5}
-            outerScale={2}
-            clickables={[
-              "a",
-              'input[type="text"]',
-              'input[type="email"]',
-              'input[type="number"]',
-              'input[type="submit"]',
-              'input[type="image"]',
-              "label[for]",
-              "select",
-              "textarea",
-              "button",
-              ".link",
-            ]}
-          />
+          <SplashCursor />
         </main>
       </motion.div>
     </>
