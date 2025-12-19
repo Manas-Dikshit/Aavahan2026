@@ -3,10 +3,16 @@ import { FaInstagram, FaGithub, FaLinkedinIn, FaFacebook } from "react-icons/fa"
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import fsPromises from "fs/promises";
 import path from "path";
+
+const GridScan = dynamic(
+  () => import("@/components/GridScan").then((mod) => mod.GridScan),
+  { ssr: false }
+);
 
 function Team(props) {
   const [index, setIndex] = useState(0);
@@ -14,20 +20,38 @@ function Team(props) {
   console.log("tabs", tabs);
 
   return (
-    <div className="h-fit w-screen bg-soothing_black">
-      <Head>
-        <title>AAVAHAN26 2025 Teams</title>
-      </Head>
-      <Header id="navbar" />
+    <div className="relative min-h-screen w-screen bg-soothing_black overflow-hidden">
+      {/* GridScan background */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#392e4e"
+          gridScale={0.1}
+          scanColor="#FF9FFC"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
+          className="w-full h-full"
+        />
+      </div>
 
-      <main>
-        <div className='h-[15rem] z-20 md:h-[20rem] bg-[url("/avengers.jpg")] object-fill text-white font-clash tracking-wide font-black 
-        flex flex-col items-center justify-center'>
-          <span className="text-[1rem] pt-12 md:pt-16 md:text-[4rem]">
-            AAVAHAN26' 2025
-          </span>
-          <span className="text-[2.5rem] tracking-wider">CREW</span>
-        </div>
+      <div className="relative z-10">
+        <Head>
+          <title>AAVAHAN26 2025 Teams</title>
+        </Head>
+        <Header id="navbar" />
+
+        <main>
+          <div className='h-[15rem] z-20 md:h-[20rem] bg-[url("/avengers.jpg")] object-fill text-white font-clash tracking-wide font-black 
+          flex flex-col items-center justify-center'>
+            <span className="text-[1rem] pt-12 md:pt-16 md:text-[4rem]">
+              AAVAHAN26' 2025
+            </span>
+            <span className="text-[2.5rem] tracking-wider">CREW</span>
+          </div>
 
         {/* Fixed horizontal scrollable tab navigation */}
         <div className="w-full overflow-x-auto px-4 py-8">
@@ -134,8 +158,9 @@ function Team(props) {
             ))}
           </div>
         </div>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Head from "next/head";
+import CircularGallery from "@/components/CircularGallary";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -178,6 +179,17 @@ export default function Gallery() {
                                 </svg>
                                 <div className="w-8 h-1 bg-main_primary rounded-full"></div>
                             </div>
+                        </div>
+
+                        {/* Circular Gallery Carousel */}
+                        <div className="w-full mb-16" style={{ height: "500px", position: "relative" }}>
+                            <CircularGallery
+                                items={galleryImages.map((img) => ({ image: img.src, text: img.alt }))}
+                                bend={3}
+                                textColor="#ffffff"
+                                borderRadius={0.05}
+                                scrollEase={0.02}
+                            />
                         </div>
 
                         {/* Gallery Grid */}

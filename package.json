@@ -13,6 +13,7 @@
     "@vercel/analytics": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "face-api.js": "^0.22.2",
     "framer-motion": "^10.9.1",
     "fs.promises": "^0.1.2",
     "gsap": "^3.11.5",
@@ -20,6 +21,8 @@
     "jquery": "^3.6.4",
     "lucide-react": "^0.562.0",
     "next": "^15.5.7",
+    "ogl": "^1.0.11",
+    "postprocessing": "^6.36.0",
     "react": "18.3.1",
     "react-animated-cursor": "^2.5.2",
     "react-confetti": "^6.1.0",
@@ -34,6 +37,7 @@
     "swiper": "^9.2.3",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.167.1",
     "vanilla-tilt": "^1.8.0"
   },
   "devDependencies": {
