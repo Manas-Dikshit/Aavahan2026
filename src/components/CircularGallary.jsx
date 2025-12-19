@@ -1,11 +1,12 @@
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
 function debounce(func, wait) {
   let timeout;
   return function (...args) {
-    window.clearTimeout(timeout);
-    timeout = window.setTimeout(() => func.apply(this, args), wait);
+    globalThis.clearTimeout(timeout);
+    timeout = globalThis.setTimeout(() => func.apply(this, args), wait);
   };
 }
 
@@ -24,7 +25,7 @@ function autoBind(instance) {
 
 function getFontSize(font) {
   const match = font.match(/(\d+)px/);
-  return match ? parseInt(match[1], 10) : 30;
+  return match ? Number.parseInt(match[1], 10) : 30;
 }
 
 function createTextTexture(gl, text, font = 'bold 30px monospace', color = 'black') {
@@ -104,6 +105,9 @@ class Title {
 }
 
 class Media {
+  extra = 0;
+  speed = 0;
+
   constructor({
     geometry,
     gl,
@@ -120,8 +124,6 @@ class Media {
     borderRadius = 0,
     font
   }) {
-    this.extra = 0;
-    this.speed = 0;
     this.geometry = geometry;
     this.gl = gl;
     this.image = image;
@@ -327,7 +329,7 @@ class App {
     this.renderer = new Renderer({
       alpha: true,
       antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(globalThis.devicePixelRatio || 1, 2)
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -351,7 +353,7 @@ class App {
     });
   }
 
-  createMedias(items, bend = 1, textColor, borderRadius, font) {
+  createMedias(items, textColor, borderRadius, font, bend = 1) {
     const defaultItems = [
       { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: 'Bridge' },
       { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: 'Desk Setup' },
@@ -366,7 +368,7 @@ class App {
       { image: `https://picsum.photos/seed/21/800/600?grayscale`, text: 'Coastline' },
       { image: `https://picsum.photos/seed/12/800/600?grayscale`, text: 'Palm Trees' }
     ];
-    const galleryItems = items && items.length ? items : defaultItems;
+    const galleryItems = items?.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
@@ -414,7 +416,7 @@ class App {
   }
 
   onCheck() {
-    if (!this.medias || !this.medias[0]) return;
+    if (!this.medias?.[0]) return;
     const width = this.medias[0].width;
     const itemIndex = Math.round(Math.abs(this.scroll.target) / width);
     const item = width * itemIndex;
@@ -447,7 +449,7 @@ class App {
     }
     this.renderer.render({ scene: this.scene, camera: this.camera });
     this.scroll.last = this.scroll.current;
-    this.raf = window.requestAnimationFrame(this.update.bind(this));
+    this.raf = globalThis.requestAnimationFrame(this.update.bind(this));
   }
 
   addEventListeners() {
@@ -456,30 +458,30 @@ class App {
     this.boundOnTouchDown = this.onTouchDown.bind(this);
     this.boundOnTouchMove = this.onTouchMove.bind(this);
     this.boundOnTouchUp = this.onTouchUp.bind(this);
-    window.addEventListener('resize', this.boundOnResize);
-    window.addEventListener('mousewheel', this.boundOnWheel);
-    window.addEventListener('wheel', this.boundOnWheel);
-    window.addEventListener('mousedown', this.boundOnTouchDown);
-    window.addEventListener('mousemove', this.boundOnTouchMove);
-    window.addEventListener('mouseup', this.boundOnTouchUp);
-    window.addEventListener('touchstart', this.boundOnTouchDown);
-    window.addEventListener('touchmove', this.boundOnTouchMove);
-    window.addEventListener('touchend', this.boundOnTouchUp);
+    globalThis.addEventListener('resize', this.boundOnResize);
+    globalThis.addEventListener('mousewheel', this.boundOnWheel);
+    globalThis.addEventListener('wheel', this.boundOnWheel);
+    globalThis.addEventListener('mousedown', this.boundOnTouchDown);
+    globalThis.addEventListener('mousemove', this.boundOnTouchMove);
+    globalThis.addEventListener('mouseup', this.boundOnTouchUp);
+    globalThis.addEventListener('touchstart', this.boundOnTouchDown);
+    globalThis.addEventListener('touchmove', this.boundOnTouchMove);
+    globalThis.addEventListener('touchend', this.boundOnTouchUp);
   }
 
   destroy() {
-    window.cancelAnimationFrame(this.raf);
-    window.removeEventListener('resize', this.boundOnResize);
-    window.removeEventListener('mousewheel', this.boundOnWheel);
-    window.removeEventListener('wheel', this.boundOnWheel);
-    window.removeEventListener('mousedown', this.boundOnTouchDown);
-    window.removeEventListener('mousemove', this.boundOnTouchMove);
-    window.removeEventListener('mouseup', this.boundOnTouchUp);
-    window.removeEventListener('touchstart', this.boundOnTouchDown);
-    window.removeEventListener('touchmove', this.boundOnTouchMove);
-    window.removeEventListener('touchend', this.boundOnTouchUp);
-    if (this.renderer && this.renderer.gl && this.renderer.gl.canvas.parentNode) {
-      this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas);
+    globalThis.cancelAnimationFrame(this.raf);
+    globalThis.removeEventListener('resize', this.boundOnResize);
+    globalThis.removeEventListener('mousewheel', this.boundOnWheel);
+    globalThis.removeEventListener('wheel', this.boundOnWheel);
+    globalThis.removeEventListener('mousedown', this.boundOnTouchDown);
+    globalThis.removeEventListener('mousemove', this.boundOnTouchMove);
+    globalThis.removeEventListener('mouseup', this.boundOnTouchUp);
+    globalThis.removeEventListener('touchstart', this.boundOnTouchDown);
+    globalThis.removeEventListener('touchmove', this.boundOnTouchMove);
+    globalThis.removeEventListener('touchend', this.boundOnTouchUp);
+    if (this.renderer && this.renderer.gl && this.renderer.gl.canvas) {
+      this.renderer.gl.canvas.remove();
     }
   }
 }
@@ -512,3 +514,18 @@ export default function CircularGallery({
 
   return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;
 }
+
+CircularGallery.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ),
+  bend: PropTypes.number,
+  textColor: PropTypes.string,
+  borderRadius: PropTypes.number,
+  font: PropTypes.string,
+  scrollSpeed: PropTypes.number,
+  scrollEase: PropTypes.number,
+};

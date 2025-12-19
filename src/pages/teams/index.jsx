@@ -6,8 +6,9 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import fsPromises from "fs/promises";
-import path from "path";
+import fsPromises from "node:fs/promises";
+import path from "node:path";
+import PropTypes from "prop-types";
 
 const GridScan = dynamic(
   () => import("@/components/GridScan").then((mod) => mod.GridScan),
@@ -56,9 +57,9 @@ function Team(props) {
         {/* Fixed horizontal scrollable tab navigation */}
         <div className="w-full overflow-x-auto px-4 py-8">
           <div className="flex gap-2 md:gap-6 min-w-max justify-start md:justify-center">
-            {tabs.map((tab, i) => (
+            {tabs.map((tab) => (
               <button
-                key={i}
+                key={tab.id || tab.name}
                 className="text-[0.8rem] md:text-[1rem] font-semibold font-chakra text-white rounded-full px-4 md:px-6 py-3 hover:bg-white/20 transition-all duration-500 ease-in-out whitespace-nowrap flex-shrink-0 cursor-pointer"
                 style={{
                   border: index === i ? "1.75px solid #9747ff" : "1px solid transparent",
@@ -75,7 +76,7 @@ function Team(props) {
         <div className="w-full h-fit pb-10 flex justify-center">
           <div className="flex flex-col gap-10 px-4 lg:px-[6rem] md:pt-6 ">
             {tabs[index].sections.map((section) => (
-              <div key={section.id}>
+              <div key={section.id || section.name}>
                 <h1 className="text-white font-clash uppercase font-semibold text-4xl py-4 pb-8">
                   {section.name}
                 </h1>
@@ -166,6 +167,26 @@ function Team(props) {
 }
 
 export default Team;
+
+Team.propTypes = {
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      name: PropTypes.string.isRequired,
+      sections: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+          name: PropTypes.string.isRequired,
+          members: PropTypes.arrayOf(
+            PropTypes.shape({
+              id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+            })
+          ).isRequired,
+        })
+      ).isRequired,
+    })
+  ).isRequired,
+};
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "/teams.json");

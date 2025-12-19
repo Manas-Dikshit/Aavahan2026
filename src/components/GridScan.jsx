@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { EffectComposer, RenderPass, EffectPass, BloomEffect, ChromaticAberrationEffect } from 'postprocessing';
 import * as THREE from 'three';
 import * as faceapi from 'face-api.js';
@@ -290,8 +291,8 @@ export const GridScan = ({
   scanGlow = 0.5,
   scanSoftness = 2,
   scanPhaseTaper = 0.9,
-  scanDuration = 2.0,
-  scanDelay = 2.0,
+  scanDuration = 2,
+  scanDelay = 2,
   enableGyro = false,
   scanOnClick = false,
   snapBackDelay = 250,
@@ -374,12 +375,12 @@ export const GridScan = ({
       if (scanOnClick) pushScan(nowSec);
       if (
         enableGyro &&
-        typeof window !== 'undefined' &&
-        (window).DeviceOrientationEvent &&
-        (DeviceOrientationEvent).requestPermission
+        typeof globalThis !== 'undefined' &&
+        globalThis.DeviceOrientationEvent &&
+        globalThis.DeviceOrientationEvent.requestPermission
       ) {
         try {
-          await (DeviceOrientationEvent).requestPermission();
+          await globalThis.DeviceOrientationEvent.requestPermission();
         } catch {}
       }
     };
@@ -392,7 +393,7 @@ export const GridScan = ({
     const onLeave = () => {
       if (uiFaceActive) return;
       if (leaveTimer) clearTimeout(leaveTimer);
-      leaveTimer = window.setTimeout(() => {
+      leaveTimer = globalThis.setTimeout(() => {
         lookTarget.current.set(0, 0);
         tiltTarget.current = 0;
         yawTarget.current = 0;
@@ -417,7 +418,7 @@ export const GridScan = ({
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     rendererRef.current = renderer;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min((globalThis.devicePixelRatio || 1), 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.NoToneMapping;
@@ -499,7 +500,7 @@ export const GridScan = ({
       material.uniforms.iResolution.value.set(container.clientWidth, container.clientHeight, renderer.getPixelRatio());
       if (composerRef.current) composerRef.current.setSize(container.clientWidth, container.clientHeight);
     };
-    window.addEventListener('resize', onResize);
+    globalThis.addEventListener('resize', onResize);
 
     let last = performance.now();
     const tick = () => {
@@ -559,7 +560,7 @@ export const GridScan = ({
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      window.removeEventListener('resize', onResize);
+      globalThis.removeEventListener('resize', onResize);
       material.dispose();
       (quad.geometry).dispose();
       if (composerRef.current) {
@@ -642,9 +643,9 @@ export const GridScan = ({
       lookTarget.current.set(nx, ny);
       tiltTarget.current = THREE.MathUtils.degToRad(gamma) * 0.4;
     };
-    window.addEventListener('deviceorientation', handler);
+    globalThis.addEventListener('deviceorientation', handler);
     return () => {
-      window.removeEventListener('deviceorientation', handler);
+      globalThis.removeEventListener('deviceorientation', handler);
     };
   }, [enableGyro, uiFaceActive]);
 
@@ -799,6 +800,37 @@ export const GridScan = ({
       )}
     </div>
   );
+};
+
+GridScan.propTypes = {
+  enableWebcam: PropTypes.bool,
+  showPreview: PropTypes.bool,
+  modelsPath: PropTypes.string,
+  sensitivity: PropTypes.number,
+  lineThickness: PropTypes.number,
+  linesColor: PropTypes.string,
+  scanColor: PropTypes.string,
+  scanOpacity: PropTypes.number,
+  gridScale: PropTypes.number,
+  lineStyle: PropTypes.oneOf(['solid', 'dashed', 'dotted']),
+  lineJitter: PropTypes.number,
+  scanDirection: PropTypes.oneOf(['forward', 'backward', 'pingpong']),
+  enablePost: PropTypes.bool,
+  bloomIntensity: PropTypes.number,
+  bloomThreshold: PropTypes.number,
+  bloomSmoothing: PropTypes.number,
+  chromaticAberration: PropTypes.number,
+  noiseIntensity: PropTypes.number,
+  scanGlow: PropTypes.number,
+  scanSoftness: PropTypes.number,
+  scanPhaseTaper: PropTypes.number,
+  scanDuration: PropTypes.number,
+  scanDelay: PropTypes.number,
+  enableGyro: PropTypes.bool,
+  scanOnClick: PropTypes.bool,
+  snapBackDelay: PropTypes.number,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 function srgbColor(hex) {
