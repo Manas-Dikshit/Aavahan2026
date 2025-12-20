@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Silk from "./Silk";
 
 export default function SponsorsSection() {
   const topRow = [
@@ -22,12 +23,16 @@ export default function SponsorsSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-24 px-4 md:px-8 text-white" style={{ backgroundColor: '#004aad' }}>
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,204,255,0.1),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[url('/textures/grid.svg')] opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0F2C]/50 to-[#030712]" />
+    <section className="relative overflow-hidden py-24 px-4 md:px-8 text-white">
+      {/* Silk background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Silk
+          speed={5}
+          scale={1}
+          color="#7B7481"
+          noiseIntensity={1.5}
+          rotation={0}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto text-center">

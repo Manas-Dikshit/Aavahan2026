@@ -57,7 +57,7 @@ function Team(props) {
         {/* Fixed horizontal scrollable tab navigation */}
         <div className="w-full overflow-x-auto px-4 py-8">
           <div className="flex gap-2 md:gap-6 min-w-max justify-start md:justify-center">
-            {tabs.map((tab) => (
+            {tabs.map((tab, i) => (
               <button
                 key={tab.id || tab.name}
                 className="text-[0.8rem] md:text-[1rem] font-semibold font-chakra text-white rounded-full px-4 md:px-6 py-3 hover:bg-white/20 transition-all duration-500 ease-in-out whitespace-nowrap flex-shrink-0 cursor-pointer"
