@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   output: 'export',
+  // Ensure Next.js uses this project directory as the workspace root
+  outputFileTracingRoot: __dirname,
   images: {
     unoptimized: true,
   },

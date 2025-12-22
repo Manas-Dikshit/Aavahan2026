@@ -381,7 +381,12 @@ export const GridScan = ({
       ) {
         try {
           await globalThis.DeviceOrientationEvent.requestPermission();
-        } catch {}
+        } catch (err) {
+          // Gracefully ignore permission errors for device orientation
+          if (process.env.NODE_ENV === 'development') {
+            console.error('DeviceOrientation permission request failed', err);
+          }
+        }
       }
     };
     const onEnter = () => {
