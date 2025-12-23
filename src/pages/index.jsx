@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import Faq from "@/components/Faq";
 import Clock from "@/components/Clock";
 import Map from "@/components/Map";
-import gsap from "gsap";
 import fsPromises from "fs/promises";
 import path from "path";
 import RitModel from "@/components/RitModel";
