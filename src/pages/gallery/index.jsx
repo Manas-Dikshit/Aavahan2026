@@ -182,13 +182,15 @@ export default function Gallery() {
                         </div>
 
                         {/* Circular Gallery Carousel */}
-                        <div className="w-full mb-16" style={{ height: "500px", position: "relative" }}>
+                        <div className="w-full mb-16 bg-soothing_black/50 rounded-xl overflow-hidden" style={{ height: "600px", position: "relative" }}>
                             <CircularGallery
                                 items={galleryImages.map((img) => ({ image: img.src, text: img.alt }))}
                                 bend={3}
                                 textColor="#ffffff"
                                 borderRadius={0.05}
-                                scrollEase={0.02}
+                                font="bold 30px sans-serif"
+                                scrollSpeed={2}
+                                scrollEase={0.05}
                             />
                         </div>
 

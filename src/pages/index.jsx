@@ -25,15 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     setIsLoaded(true);
-
-    gsap.fromTo(
-      stagger.current,
-      { opacity: 0, y: 100 },
-      { opacity: 1, y: 0, duration: 1.5 }
-    );
   }, []);
-
-  const stagger = useRef(null);
 
   return (
     <div className="h-fit" style={{backgroundColor: "#004aad"}}>

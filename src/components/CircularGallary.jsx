@@ -24,6 +24,9 @@ function autoBind(instance) {
 }
 
 function getFontSize(font) {
+  if (typeof font !== 'string') {
+    return 30;
+  }
   const match = font.match(/(\d+)px/);
   return match ? Number.parseInt(match[1], 10) : 30;
 }
@@ -202,9 +205,9 @@ class Media {
         tMap: { value: texture },
         uPlaneSizes: { value: [0, 0] },
         uImageSizes: { value: [0, 0] },
-        uSpeed: { value: 0 },
+        uSpeed: { value: 0.0 },
         uTime: { value: 100 * Math.random() },
-        uBorderRadius: { value: this.borderRadius }
+        uBorderRadius: { value: parseFloat(this.borderRadius) || 0.0 }
       },
       transparent: true
     });
@@ -262,7 +265,7 @@ class Media {
 
     this.speed = scroll.current - scroll.last;
     this.program.uniforms.uTime.value += 0.04;
-    this.program.uniforms.uSpeed.value = this.speed;
+    this.program.uniforms.uSpeed.value = parseFloat(this.speed) || 0.0;
 
     const planeOffset = this.plane.scale.x / 2;
     const viewportOffset = this.viewport.width / 2;
@@ -333,7 +336,14 @@ class App {
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
-    this.container.appendChild(this.renderer.gl.canvas);
+    
+    // Style the canvas
+    const canvas = this.renderer.gl.canvas;
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.display = 'block';
+    
+    this.container.appendChild(canvas);
   }
 
   createCamera() {
@@ -498,21 +508,34 @@ export default function CircularGallery({
   const containerRef = useRef(null);
   useEffect(() => {
     if (!containerRef.current) return;
-    const app = new App(containerRef.current, {
-      items,
-      bend,
-      textColor,
-      borderRadius,
-      font,
-      scrollSpeed,
-      scrollEase
-    });
+    
+    // Small delay to ensure container has dimensions
+    const timeoutId = setTimeout(() => {
+      if (!containerRef.current) return;
+      
+      const app = new App(containerRef.current, {
+        items,
+        bend,
+        textColor,
+        borderRadius,
+        font,
+        scrollSpeed,
+        scrollEase
+      });
+      
+      // Store app instance for cleanup
+      containerRef.current._appInstance = app;
+    }, 100);
+
     return () => {
-      app.destroy();
+      clearTimeout(timeoutId);
+      if (containerRef.current?._appInstance) {
+        containerRef.current._appInstance.destroy();
+      }
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
 
-  return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;
+  return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} style={{ minHeight: '400px' }} />;
 }
 
 CircularGallery.propTypes = {

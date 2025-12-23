@@ -82,6 +82,11 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="shortcut icon" href="/Cultural Logo.svg" type="image/svg +xml " />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.setAttribute('data-scroll-behavior', 'smooth');`
+          }}
+        />
       </Head>
       <motion.div
         initial={{ opacity: 0 }}
