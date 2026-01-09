@@ -89,7 +89,10 @@ export default function Gallery() {
     };
 
     return (
-        <div className="bg-soothing_black min-h-screen">
+        <div
+            className="min-h-screen"
+            style={{ backgroundColor: "#004aad" }}
+        >
             <Head>
                 <title>AAVAHAN26 2K25 Gallery</title>
                     <meta name="description" content="Explore the gallery of AAVAHAN26 2025 - memorable moments from our cultural fest" />
@@ -98,7 +101,7 @@ export default function Gallery() {
             <Header />
 
             <div className="pt-20">
-                <section className="w-full py-16 px-4 bg-soothing_black relative overflow-hidden">
+                <section className="w-full py-16 px-4 relative overflow-hidden">
                     {/* Background Elements with Camera Icons */}
                     <div className="absolute inset-0 opacity-5">
                         {[...Array(15)].map((_, i) => (
@@ -182,7 +185,7 @@ export default function Gallery() {
                         </div>
 
                         {/* Circular Gallery Carousel */}
-                        <div className="w-full mb-16 bg-soothing_black/50 rounded-xl overflow-hidden" style={{ height: "600px", position: "relative" }}>
+                        <div className="w-full mb-16 bg-black/30 rounded-xl overflow-hidden" style={{ height: "600px", position: "relative" }}>
                             <CircularGallery
                                 items={galleryImages.map((img) => ({ image: img.src, text: img.alt }))}
                                 bend={3}

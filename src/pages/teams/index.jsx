@@ -3,57 +3,22 @@ import { FaInstagram, FaGithub, FaLinkedinIn, FaFacebook } from "react-icons/fa"
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
 import PropTypes from "prop-types";
 
-const GridScan = dynamic(
-  () => import("@/components/GridScan").then((mod) => mod.GridScan),
-  { ssr: false }
-);
-
 function Team(props) {
   const [index, setIndex] = useState(0);
   const tabs = props.tabs;
   console.log("tabs", tabs);
-  const [showGridScan, setShowGridScan] = useState(false);
-
-  React.useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
-    const isWideScreen = window.innerWidth >= 768;
-
-    if (!prefersReducedMotion && hasFinePointer && isWideScreen) {
-      setShowGridScan(true);
-    }
-  }, []);
 
   return (
-    <div className="relative min-h-screen w-screen bg-soothing_black overflow-hidden">
-      {/* GridScan background - desktop / high-performance only */}
-      {showGridScan && (
-        <div className="pointer-events-none absolute inset-0 z-0">
-          <GridScan
-            sensitivity={0.55}
-            lineThickness={1}
-            linesColor="#392e4e"
-            gridScale={0.1}
-            scanColor="#FF9FFC"
-            scanOpacity={0.35}
-            enablePost={false}
-            noiseIntensity={0.01}
-            className="w-full h-full"
-          />
-        </div>
-      )}
-
+    <div
+      className="relative min-h-screen w-screen overflow-hidden"
+      style={{ backgroundColor: "#004aad" }}
+    >
       <div className="relative z-10">
         <Head>
           <title>AAVAHAN26 2025 Teams</title>

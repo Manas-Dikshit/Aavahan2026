@@ -7,27 +7,29 @@ import Image from "next/image";
 import Link from "next/link";
 import fsPromises from "fs/promises";
 import path from "path";
-import { FaInstagram, FaGithub, FaLinkedinIn, FaFacebook } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
 
-export default function Team({ tabs }) {
+export default function EventsPage({ categories, posts }) {
   const [index, setIndex] = useState(0);
-  const currentTab = tabs[index];
+  const currentCategory = categories[index];
+  const currentEvents = posts[index] || [];
 
   return (
-    <div className="min-h-screen w-full bg-soothing_black overflow-x-hidden">
+    <div
+      className="min-h-screen w-full overflow-x-hidden"
+      style={{ backgroundColor: "#004aad" }}
+    >
       <Head>
-        <title>AAVAHAN26 • Crew</title>
+        <title>AAVAHAN26 • Events</title>
       </Head>
 
       <Header id="navbar" />
 
-      {/* 🟣 Hero Section */}
+      {/* Hero Section */}
       <section className="relative w-full h-[15rem] md:h-[22rem] flex flex-col items-center justify-center text-white font-clash font-black tracking-wider overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/banner.png"
-            alt="Aavahan Crew Banner"
+            alt="Aavahan Events Banner"
             fill
             priority
             quality={100}
@@ -39,18 +41,17 @@ export default function Team({ tabs }) {
             AAVAHAN’26&nbsp;2025
           </h1>
           <p className="text-2xl md:text-4xl mt-3 text-main_primary tracking-[0.3em]">
-            CREW
+            EVENTS
           </p>
         </div>
       </section>
 
-      {/* 🔹 Category Navigation */}
+      {/* Category Navigation */}
       <div className="w-full overflow-x-auto px-4 py-6 bg-gradient-to-b from-black/20 to-transparent">
         <div className="flex gap-3 md:gap-8 min-w-max justify-start md:justify-center">
-          {tabs.map((tab, i) => (
-            <motion.button
-              key={i}
-              whileTap={{ scale: 0.95 }}
+          {categories.map((name, i) => (
+            <button
+              key={name}
               className={`text-[0.9rem] md:text-[1.1rem] font-semibold font-chakra text-white rounded-full px-5 md:px-8 py-3 transition-all duration-400 whitespace-nowrap ${
                 index === i
                   ? "bg-main_primary/20 border border-main_primary/60 shadow-[0_0_15px_rgba(151,71,255,0.4)]"
@@ -58,115 +59,63 @@ export default function Team({ tabs }) {
               }`}
               onClick={() => setIndex(i)}
             >
-              {tab.name}
-            </motion.button>
+              {name}
+            </button>
           ))}
         </div>
       </div>
 
-      {/* 👥 Team Grid */}
+      {/* Events Grid */}
       <main className="w-full flex justify-center pb-16 px-4 md:px-8 lg:px-20">
-        <div className="max-w-7xl w-full flex flex-col gap-16">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              {currentTab.sections.map((section) => (
-                <div key={section.id} className="mb-12">
-                  <h1 className="text-white font-clash uppercase font-semibold text-4xl mb-8 text-center md:text-left">
-                    {section.name}
-                  </h1>
+        <div className="max-w-7xl w-full flex flex-col gap-8">
+          <h2 className="text-white font-clash uppercase font-semibold text-3xl md:text-4xl mb-4 text-center md:text-left">
+            {currentCategory}
+          </h2>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
-                    {section.members.map((member) => (
-                      <motion.div
-                        key={member.id}
-                        whileHover={{ scale: 1.04 }}
-                        className="relative bg-[#111]/70 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden shadow-md hover:shadow-[0_0_25px_rgba(151,71,255,0.25)] hover:border-main_primary/30 transition-all duration-300 flex flex-col items-center p-6"
-                      >
-                        {/* Image */}
-                        <div className="w-[160px] h-[170px] overflow-hidden rounded-lg border border-white/10 mb-4">
-                          <Image
-                            src={member.img}
-                            alt={member.name}
-                            width={300}
-                            height={300}
-                            className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
-                          />
-                        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+            {currentEvents.map((event) => (
+              <div
+                key={event.id}
+                className="relative bg-[#111]/70 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden shadow-md hover:shadow-[0_0_25px_rgba(151,71,255,0.25)] hover:border-main_primary/30 transition-all duration-300 flex flex-col"
+              >
+                <div className="w-full h-48 overflow-hidden">
+                  <Image
+                    src={event.img}
+                    alt={event.title}
+                    width={400}
+                    height={300}
+                    className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
 
-                        {/* Member Details */}
-                        <div className="text-center font-chakra">
-                          <p className="text-white/70 font-medium text-sm mb-1">
-                            {member.post}
-                          </p>
-                          <h2 className="text-white font-bold text-xl group-hover:text-main_primary transition-colors duration-300">
-                            {member.name}
-                          </h2>
-                        </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <p className="text-main_primary font-chakra text-xs mb-1 tracking-wide">
+                    AAVAHAN'26 EVENT
+                  </p>
+                  <h3 className="text-white font-clash font-semibold text-lg mb-2">
+                    {event.title}
+                  </h3>
+                  {event.description && (
+                    <p className="text-white/70 text-sm mb-4 line-clamp-3">
+                      {event.description}
+                    </p>
+                  )}
 
-                        {/* Social Icons */}
-                        <div className="flex gap-3 mt-4">
-                          {member.linkedin && (
-                            <Link
-                              href={member.linkedin}
-                              target="_blank"
-                              className="bg-white/10 hover:bg-main_primary/20 border border-white/20 hover:border-main_primary/40 p-2 rounded transition-all duration-300 transform hover:scale-110"
-                            >
-                              <FaLinkedinIn
-                                size="1.1rem"
-                                className="text-white/80 hover:text-main_primary transition-colors duration-300"
-                              />
-                            </Link>
-                          )}
-                          {member.insta && (
-                            <Link
-                              href={member.insta}
-                              target="_blank"
-                              className="bg-white/10 hover:bg-main_primary/20 border border-white/20 hover:border-main_primary/40 p-2 rounded transition-all duration-300 transform hover:scale-110"
-                            >
-                              <FaInstagram
-                                size="1.1rem"
-                                className="text-white/80 hover:text-main_primary transition-colors duration-300"
-                              />
-                            </Link>
-                          )}
-                          {member.github && (
-                            <Link
-                              href={member.github}
-                              target="_blank"
-                              className="bg-white/10 hover:bg-main_primary/20 border border-white/20 hover:border-main_primary/40 p-2 rounded transition-all duration-300 transform hover:scale-110"
-                            >
-                              <FaGithub
-                                size="1.1rem"
-                                className="text-white/80 hover:text-main_primary transition-colors duration-300"
-                              />
-                            </Link>
-                          )}
-                          {member.facebook && (
-                            <Link
-                              href={member.facebook}
-                              target="_blank"
-                              className="bg-white/10 hover:bg-main_primary/20 border border-white/20 hover:border-main_primary/40 p-2 rounded transition-all duration-300 transform hover:scale-110"
-                            >
-                              <FaFacebook
-                                size="1.1rem"
-                                className="text-white/80 hover:text-main_primary transition-colors duration-300"
-                              />
-                            </Link>
-                          )}
-                        </div>
-                      </motion.div>
-                    ))}
+                  <div className="mt-auto flex justify-between items-center pt-2">
+                    <span className="text-white/60 text-xs font-chakra">
+                      Tap for details
+                    </span>
+                    <Link
+                      href={`/events/${event.id}`}
+                      className="bg-main_primary/80 hover:bg-main_primary text-white text-xs font-semibold font-chakra px-3 py-1 rounded-full transition-colors duration-200"
+                    >
+                      View
+                    </Link>
                   </div>
                 </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
 
@@ -175,13 +124,16 @@ export default function Team({ tabs }) {
   );
 }
 
-/* 🧩 Fetch JSON Data for Teams */
+// Fetch Events Data
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), "/teams.json");
+  const filePath = path.join(process.cwd(), "/events.json");
   const jsonData = await fsPromises.readFile(filePath);
   const objectData = JSON.parse(jsonData);
 
   return {
-    props: objectData,
+    props: {
+      categories: objectData.names,
+      posts: objectData.posts,
+    },
   };
 }
