@@ -23,14 +23,17 @@ export default function SponsorsSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-24 px-4 md:px-8 text-white">
-      {/* Silk background */}
+    <section
+      className="relative overflow-hidden py-24 px-4 md:px-8 text-white"
+      style={{ backgroundColor: "#004aad" }}
+    >
+      {/* Silk background - always visible */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Silk
           speed={5}
           scale={1}
           color="#004aad"
-          noiseIntensity={1.5}
+          noiseIntensity={1.2}
           rotation={0}
         />
       </div>

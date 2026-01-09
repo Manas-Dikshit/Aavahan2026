@@ -57,12 +57,15 @@ void main() {
   tex.y += 0.03 * sin(8.0 * tex.x - tOffset);
 
   float pattern = 0.6 +
-                  0.4 * sin(5.0 * (tex.x + tex.y +
-                                   cos(3.0 * tex.x + 5.0 * tex.y) +
-                                   0.02 * tOffset) +
-                           sin(20.0 * (tex.x + tex.y - 0.1 * tOffset)));
+        0.4 * sin(5.0 * (tex.x + tex.y +
+             cos(3.0 * tex.x + 5.0 * tex.y) +
+             0.02 * tOffset) +
+           sin(20.0 * (tex.x + tex.y - 0.1 * tOffset)));
 
-  vec4 col = vec4(uColor, 1.0) * vec4(pattern) - rnd / 15.0 * uNoiseIntensity;
+  // Keep the hue close to uColor, but make the
+  // flow clearly visible by modulating brightness.
+  float brightness = 0.85 + 0.25 * (pattern - 0.6);
+  vec4 col = vec4(uColor, 1.0) * brightness - rnd / 40.0 * uNoiseIntensity;
   col.a = 1.0;
   gl_FragColor = col;
 }

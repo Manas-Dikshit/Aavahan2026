@@ -10,8 +10,6 @@ export default function About() {
   const suiitHeading = useRef(null);
   const aboutbit = useRef(null);
   const videoRef = useRef(null);
-  const aurora = useRef(null);
-  const particlesRef = useRef(null); // New ref for subtle particle effect
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -70,27 +68,6 @@ export default function About() {
         }
       );
 
-      // Soft Aurora movement - Kept subtle, optimized
-      gsap.to(aurora.current, {
-        backgroundPosition: "180% 0%",
-        duration: 60,
-        ease: "none",
-        repeat: -1,
-      });
-
-      // Subtle particle animation for Marvel multiverse vibe - New addition for attractiveness
-      if (particlesRef.current) {
-        gsap.to(particlesRef.current.children, {
-          y: "-=10",
-          opacity: 0.5,
-          duration: 3,
-          ease: "power1.inOut",
-          stagger: 0.2,
-          repeat: -1,
-          yoyo: true,
-        });
-      }
-
       // Smooth parallax hover - Optimized for GPU
       const video = videoRef.current;
       if (video) {
@@ -140,30 +117,10 @@ export default function About() {
   return (
     <div
       className="relative min-h-screen p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 text-white overflow-hidden"
-      style={{ backgroundColor: "#004aad", perspective: "1000px" }}
+      style={{ backgroundColor: "#004aad" }}
       role="main" // Added for accessibility
       aria-labelledby="about-heading"
     >
-      {/* Aurora Background - Enhanced with subtle multiverse gradient */}
-      <div
-        ref={aurora}
-        className="absolute inset-0 opacity-15 bg-[length:200%_200%] bg-gradient-to-r from-pink-500/10 via-blue-500/20 to-cyan-400/10 pointer-events-none"
-      ></div>
-
-      {/* Subtle Particles for Marvel Multiverse Effect - New for attractiveness */}
-      <div ref={particlesRef} className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
-
       {/* AAVAHAN SVG Section - Made larger and more responsive for "perfectness" */}
       <div
         ref={trigger}
@@ -172,7 +129,7 @@ export default function About() {
         <img
           src="./about-aavahan.svg"
           alt="AAVAHAN 26 - The Cultural Fest of SUIIT"
-          className="w-[95%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[60%] max-w-[1200px] h-auto drop-shadow-[0_0_35px_rgba(255,255,255,0.25)] hover:scale-[1.02] transition-transform duration-600 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          className="w-[95%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[60%] max-w-[1200px] h-auto drop-shadow-[0_0_35px_rgba(255,255,255,0.25)] hover:scale-[1.02] transition-transform duration-200 ease-[cubic-bezier(0.25,1,0.5,1)]"
           loading="eager" // Preload for better performance
         />
       </div>
@@ -230,7 +187,7 @@ export default function About() {
             muted
             playsInline
             preload="metadata" // Added for better loading
-            className="w-full md:w-[32rem] xl:w-[28rem] h-[18rem] md:h-[20rem] object-cover rounded-2xl border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.3)] transition-transform duration-400 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer transform-gpu"
+            className="w-full md:w-[32rem] xl:w-[28rem] h-[18rem] md:h-[20rem] object-cover rounded-2xl border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.3)] transition-transform duration-200 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer transform-gpu"
             aria-label="Promotional video of SUIIT" // Added for accessibility
           />
         </div>

@@ -7,7 +7,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  webpack: (config) => {
+  webpack: (config, { dev }) => {
+    // Disable webpack filesystem cache in development to avoid
+    // intermittent ENOENT rename errors on Windows (PackFileCacheStrategy).
+    if (dev && config.cache) {
+      config.cache = false;
+    }
+
     config.resolve = config.resolve || {};
     config.resolve.fallback = {
       ...(config.resolve.fallback || {}),

@@ -120,21 +120,10 @@ export default function MarvelMerchandise() {
       ref={sectionRef}
       className="relative w-full min-h-screen text-white overflow-hidden py-20 flex flex-col items-center justify-center perspective"
       style={{
-        background:
-          "radial-gradient(circle at 20% 20%, #002b7a 0%, #001133 70%, #000 100%)",
+        backgroundColor: "#004aad",
       }}
     >
-      {/* Floating energy shimmer layers */}
-      <div className="absolute inset-0 opacity-30 z-0 animate-pulse-slow">
-        <div
-          className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(255,0,0,0.6)_0%,transparent_80%)] blur-[120px] rounded-full mix-blend-screen"
-          style={{ animation: "float 12s ease-in-out infinite" }}
-        ></div>
-        <div
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(0,150,255,0.6)_0%,transparent_80%)] blur-[100px] rounded-full mix-blend-screen"
-          style={{ animation: "float 14s ease-in-out infinite reverse" }}
-        ></div>
-      </div>
+      {/* Background now matches hero solid color (#004aad) */}
 
       {/* Header */}
       <div className="relative z-20 text-center mb-16 px-6">

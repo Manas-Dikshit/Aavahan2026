@@ -1,28 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 
 export default function EventSlider() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      const tiltElements = document.querySelectorAll("[data-tilt]");
-      if (window.VanillaTilt) {
-        window.VanillaTilt.init(tiltElements, {
-          max: 20,
-          speed: 400,
-          glare: true,
-          "max-glare": 0.4,
-          scale: 1.05,
-          perspective: 900,
-        });
-      }
-    };
-  }, []);
 
   const events = [
     {
@@ -66,7 +45,6 @@ export default function EventSlider() {
         {events.map((event, i) => (
           <div
             key={i}
-            data-tilt
             className="relative group rounded-xl overflow-hidden shadow-[0_0_25px_rgba(0,0,0,0.3)] hover:shadow-[0_0_50px_rgba(0,74,173,0.6)] transition-all duration-500 bg-[#003b94]/30 border border-white/10 backdrop-blur-lg"
           >
             {/* Card wrapper */}

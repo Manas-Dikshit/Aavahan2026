@@ -13,10 +13,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 
-const InitialLoader = dynamic(() => import("@/components/InitialLoader"), {
-  ssr: false,
-});
-
 const SplashCursor = dynamic(() => import("@/components/SplashCursor"), {
   ssr: false,
 });
@@ -46,37 +42,30 @@ const font_clash_display = LocalFont({
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  // const [loading, setLoading] = React.useState(false);
-  const [initialLoading, setInitialLoading] = React.useState(true);
+  const [showCursor, setShowCursor] = React.useState(false);
 
   React.useEffect(() => {
-    setTimeout(() => {
-      setInitialLoading(false);
-    }, 2700);
+    if (typeof window === "undefined") return;
 
-    const handleStart = () => {
-      // setLoading(true);
-      setTimeout(() => {
-        // setLoading(false);
-        console.log("setLoading False");
-      }, 2700);
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+
+    if (!prefersReducedMotion && hasFinePointer) {
+      setShowCursor(true);
+    }
+
+    const handleRouteChangeStart = () => {
+      // Placeholder for future lightweight route-change feedback if needed.
     };
-    router.events.on(
-      "routeChangeStart",
-      (url) => url != router.asPath && handleStart()
-    );
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
 
     return () => {
-      router.events.off(
-        "routeChangeStart",
-        (url) => url != router.asPath && handleStart()
-      );
+      router.events.off("routeChangeStart", handleRouteChangeStart);
     };
-  }, [router.asPath, router.events]);
-
-  if (initialLoading) {
-    return <InitialLoader />;
-  }
+  }, [router.events]);
 
   return (
     <>
@@ -99,7 +88,7 @@ export default function MyApp({ Component, pageProps }) {
         >
           <Component {...pageProps} />
           <Analytics />
-          <SplashCursor />
+          {showCursor && <SplashCursor />}
         </main>
       </motion.div>
     </>
