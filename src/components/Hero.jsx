@@ -90,22 +90,7 @@ function Hero() {
             draggable="false"
           />
         </div>
-      </div>
-
-      {/* ✅ Dates */}
-      <div
-        ref={date}
-        className="mt-12 opacity-0 mx-auto lg:mx-0 bg-white text-black font-chakra font-bold px-6 py-3 rounded-lg text-lg sm:text-xl md:text-2xl lg:text-3xl shadow-md w-fit"
-      >
-        <span className="block mb-1">
-          February <span className="font-clash text-main_primary">2026</span>
-        </span>
-        <span className="flex justify-center gap-3 sm:gap-5 text-[1.8rem] md:text-[2.2rem]">
-          <span>20<b className="text-[0.8rem]">TH</b></span>
-          <span>21<b className="text-[0.8rem]">ST</b></span>
-          <span>22<b className="text-[0.8rem]">ND</b></span>
-        </span>
-      </div>
+      </div>      
     </section>
   );
 }

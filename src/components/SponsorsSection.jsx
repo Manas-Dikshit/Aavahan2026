@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Silk from "./Silk";
+
 
 export default function SponsorsSection() {
   const topRow = [
@@ -27,16 +27,7 @@ export default function SponsorsSection() {
       className="relative overflow-hidden py-24 px-4 md:px-8 text-white"
       style={{ backgroundColor: "#004aad" }}
     >
-      {/* Silk background - always visible */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Silk
-          speed={5}
-          scale={1}
-          color="#004aad"
-          noiseIntensity={1.2}
-          rotation={0}
-        />
-      </div>
+   
 
       <div className="relative z-10 max-w-7xl mx-auto text-center">
         {/* Title */}
@@ -44,7 +35,7 @@ export default function SponsorsSection() {
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-5xl md:text-7xl font-extrabold font-clash bg-gradient-to-r from-[#00ccff] via-[#c400ff] to-[#ff0040] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(0,204,255,0.7)]"
+          className="text-5xl md:text-7xl font-extrabold font-clash bg-white bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(0,204,255,0.7)]"
         >
           OUR PAST SPONSORS
         </motion.h2>
@@ -106,9 +97,9 @@ export default function SponsorsSection() {
             transition={{ delay: 0.3, duration: 0.7 }}
             className="mt-12"
           >
-            <button className="relative px-10 py-4 text-lg md:text-xl font-bold uppercase tracking-wide rounded-xl bg-gradient-to-r from-[#ff0040] via-[#c400ff] to-[#00ccff] text-white shadow-[0_0_20px_rgba(255,0,150,0.6)] hover:shadow-[0_0_30px_rgba(0,200,255,0.9)] transition-all duration-500 overflow-hidden">
-              <span className="relative z-10">Become a Sponsor</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-glow-sweep" />
+            <button className="mt-5 px-5 py-5 bg-main_primary text-white font-semibold font-clash rounded-lg shadow-md hover:bg-white hover:text-main_primary hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300">
+              <span className="relative z-12">Become a Sponsor</span>
+              
             </button>
           </motion.div>
         </div>
