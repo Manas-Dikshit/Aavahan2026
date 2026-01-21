@@ -4,12 +4,12 @@
       "name": "CONVENERS",
       "sections": [
         {
-          "name": "Faculty Convenors",
+          "name": "Faculty In-charge",
           "members": [
             {
               "id": "c1",
               "name": "Dr. Shibani Kar",
-              "post": "Faculty In-charge",
+              "post": "Vice President",
               "img": "/team/Shibani.jpg",
               "insta": "",
               "Email":"skar@suiit.ac.in",
@@ -18,7 +18,7 @@
             {
               "id": "c2",
               "name": "Dr. Alpesh Kumar Dauda",
-              "post": "Faculty In-charge",
+              "post": "Associate Vice President",
               "img": "/team/Alpesh.jpg",
               "insta": "",
               "Email":"akdauda@suiit.ac.in",
