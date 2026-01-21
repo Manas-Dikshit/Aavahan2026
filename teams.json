@@ -8,20 +8,22 @@
           "members": [
             {
               "id": "c1",
-              "name": "Prof. Bulbul Mukerjee",
-              "post": "Faculty Convenor",
-              "img": "/TeamImages/bulbul.jpg",
+              "name": "Dr. Shibani Kar",
+              "post": "Faculty In-charge",
+              "img": "/team/Shibani.jpg",
               "insta": "",
+              "Email":"skar@suiit.ac.in",
               "facebook": ""
             },
             {
               "id": "c2",
-              "name": "Prof. Kuntala Das",
-              "post": "Faculty Convenor",
-              "img": "/TeamImages/kuntala.jpg",
+              "name": "Dr. Alpesh Kumar Dauda",
+              "post": "Faculty In-charge",
+              "img": "/team/Alpesh.jpg",
               "insta": "",
-              "facebook": "https://www.facebook.com/share/1CEm53chwZ/?mibextid=wwXIfr"
-            }
+              "Email":"akdauda@suiit.ac.in",
+              "facebook": ""
+            }          
           ]
         }
       ]
@@ -597,7 +599,7 @@
             {
               "id": "Dt2",
               "name": "Debashish Pradhan",
-              "post": "Asst. Developer ",
+              "post": "Developer ",
               "img": "/team/Debashish.jpg",
               "insta": "https://www.instagram.com/dev_loperrr",
               "linkedin": "https://www.linkedin.com/in/debashish608",

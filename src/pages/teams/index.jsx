@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaInstagram, FaGithub, FaLinkedinIn, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaGithub, FaLinkedinIn, FaFacebook, FaEnvelope } from "react-icons/fa";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -87,7 +87,7 @@ function Team(props) {
 
                       {/* Social icons dynamically positioned */}
                       <div className="absolute right-4 flex flex-col gap-2" style={{
-                        top: `${100 + (170 - (Object.keys(member).filter(key => ['linkedin', 'insta', 'github', 'facebook'].includes(key) && member[key]).length * 40)) / 5}px`
+                        top: `${100 + (170 - (Object.keys(member).filter(key => ['linkedin', 'insta', 'github', 'facebook', 'Email', 'email'].includes(key) && member[key]).length * 40)) / 5}px`
                       }}>
                         {member.linkedin && (
                           <Link href={`${member.linkedin}`} className="bg-white/10 hover:bg-main_primary/20 border border-white/20 hover:border-main_primary/40 p-2 rounded transition-all duration-300 transform hover:scale-110" target="_blank">
@@ -117,6 +117,14 @@ function Team(props) {
                           <Link href={`${member.facebook}`} className="bg-white/10 hover:bg-main_primary/20 border border-white/20 hover:border-main_primary/40 p-2 rounded transition-all duration-300 transform hover:scale-110" target="_blank">
                             <FaFacebook
                               size="1.2rem"
+                              className="text-white/80 hover:text-main_primary transition-colors duration-300"
+                            />
+                          </Link>
+                        )}
+                        {(member.Email || member.email) && (
+                          <Link href={`mailto:${member.Email || member.email}`} className="bg-white/10 hover:bg-main_primary/20 border border-white/20 hover:border-main_primary/40 p-2 rounded transition-all duration-300 transform hover:scale-110">
+                            <FaEnvelope
+                              size="1.1rem"
                               className="text-white/80 hover:text-main_primary transition-colors duration-300"
                             />
                           </Link>

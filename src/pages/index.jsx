@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div className="h-fit" style={{backgroundColor: "#004aad"}}>
       <Head>
-        <title>AAVAHAN26 2K25</title>
+        <title>AAVAHAN 2K26</title>
       </Head>
 
       <Header id="navbar" />

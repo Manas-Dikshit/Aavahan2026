@@ -2,7 +2,7 @@ import React from "react";
 import Navlink from "./Navlink";
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
-import { FaYoutube, FaInstagram, FaFacebookF } from "react-icons/fa";
+import { FaYoutube, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   function scrollToTop() {
@@ -54,7 +54,7 @@ export default function Footer() {
               ))}
             </div>
             <div className="flex flex-col gap-2">
-              {["Team", "Contact"].map((name) => (
+              {["Teams", "Contact"].map((name) => (
                 <div key={name} className="hover:text-white transition-colors duration-300">
                   <Navlink name={name} link={`/${name.toLowerCase()}`} />
                 </div>
@@ -81,11 +81,11 @@ export default function Footer() {
             <Link href="https://youtube.com/@suiitofficial" target="_blank" className="social-links flex items-center justify-center grow min-w-[4rem] min-h-[4rem] rounded-xl bg-black/30 hover:bg-white/10 transition-all duration-300 shadow-md">
               <FaYoutube size="2.2rem" />
             </Link>
-            <Link href="https://www.instagram.com/suiit_official/" target="_blank" className="social-links flex items-center justify-center grow min-w-[4rem] min-h-[4rem] rounded-xl bg-black/30 hover:bg-white/10 transition-all duration-300 shadow-md">
+            <Link href="https://www.instagram.com/aavahan.suiit" target="_blank" className="social-links flex items-center justify-center grow min-w-[4rem] min-h-[4rem] rounded-xl bg-black/30 hover:bg-white/10 transition-all duration-300 shadow-md">
               <FaInstagram size="2.2rem" />
             </Link>
-            <Link href="https://www.facebook.com/suiit.official" target="_blank" className="social-links flex items-center justify-center grow min-w-[4rem] min-h-[4rem] rounded-xl bg-black/30 hover:bg-white/10 transition-all duration-300 shadow-md">
-              <FaFacebookF size="2rem" />
+            <Link href="http://wa.me/918117050246" target="_blank" className="social-links flex items-center justify-center grow min-w-[4rem] min-h-[4rem] rounded-xl bg-black/30 hover:bg-white/10 transition-all duration-300 shadow-md">
+              <FaWhatsapp size="2.2rem" />
             </Link>
           </div>
         </div>

@@ -24,7 +24,7 @@ export default function Contact(props) {
   return (
     <div className="h-fit w-screen bg-darkPurple">
       <Head>
-        <title>AAVAHAN26 2K25 Contact</title>
+        <title>AAVAHAN 2K26 Contact</title>
       </Head>
       <Header id="Navbar" />
       <main className='pt-[5.5rem] h-full'>
@@ -39,7 +39,7 @@ export default function Contact(props) {
             Get In Touch
           </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-white font-clash max-w-3xl mx-auto leading-relaxed">
-            Have questions about AAVAHAN26 2025? Want to collaborate or get involved? We'd love to hear from you!
+            Have questions about AAVAHAN 2026? Want to collaborate or get involved? We'd love to hear from you!
           </p>
           <div className="w-20 sm:w-32 h-1 bg-gradient-to-r from-main_primary to-orange-400 mx-auto mt-6 sm:mt-8 rounded-full" />
         </motion.div>
@@ -73,7 +73,7 @@ export default function Contact(props) {
                   <h3 className="font-bold text-gray-800 mb-2 text-lg font-clash">Instagram</h3>
                   <p className="text-gray-600 text-sm mb-4 font-clash">Follow us for updates</p>
                   <a
-                    href="https://www.instagram.com/tbit_bits2bytes/"
+                    href="https://www.instagram.com/aavahan.suiit"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:shadow-lg transition-all duration-200 font-clash"
@@ -99,7 +99,7 @@ export default function Contact(props) {
                   <h3 className="font-bold text-gray-800 mb-2 text-lg font-clash">WhatsApp</h3>
                   <p className="text-gray-600 text-sm mb-4 font-clash">Quick support chat</p>
                   <a
-                    href=""
+                    href="http://wa.me/918117050246"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-gradient-to-r from-green-400 to-green-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:shadow-lg transition-all duration-200 font-clash"
@@ -123,8 +123,8 @@ export default function Contact(props) {
                     <FaEnvelope className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-bold text-gray-800 mb-2 text-lg font-clash">Email</h3>
-                  <p className="text-gray-600 text-sm mb-4 font-clash">Official inquiries</p>
-                  <p className="text-black mb-2 text-lg font-chakra">aavahan26@bitcollege.in</p>
+                  <p className="text-gray-600 text-sm mb-4 font-clash">For inquiries</p>
+                  <p className="text-black mb-2 text-lg font-chakra">aavahan@suiit.ac.in</p>
                 </div>
               </motion.div>
             </div>
@@ -143,9 +143,8 @@ export default function Contact(props) {
                   </div>
                 </div>
                 <h3 className="font-bold text-white mb-2 text-lg sm:text-xl font-clash">Call Us</h3>
-                <p className="text-white mb-2 text-lg font-chakra">+91 9801929811</p>
-                <p className="text-white mb-2 text-lg font-chakra">+91 9330108191</p>
-                <p className="text-sm text-white font-chakra">Mon-Fri, 9AM-5PM IST</p>
+                <p className="text-white mb-2 text-lg font-chakra">+91 8117050246</p>
+              
               </motion.div>
 
               <motion.div
@@ -160,8 +159,8 @@ export default function Contact(props) {
                   </div>
                 </div>
                 <h3 className="font-bold text-white mb-2 text-lg sm:text-xl font-clash">Visit Us</h3>
-                <p className="text-white mb-2 text-lg font-chakra">TBIT Campus</p>
-                <p className="text-sm text-white font-chakra">Kolkata, West Bengal</p>
+                <p className="text-white mb-2 text-lg font-chakra">SUIIT Campus</p>
+                <p className="text-sm text-white font-chakra">Jyoti Vihar, Burla</p>
               </motion.div>
             </div>
           </motion.div>
