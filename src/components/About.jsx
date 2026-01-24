@@ -129,7 +129,7 @@ export default function About() {
         <img
           src="./about-aavahan.svg"
           alt="AAVAHAN 26 - The Cultural Fest of SUIIT"
-          className="w-[95%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[60%] max-w-[1200px] h-auto drop-shadow-[0_0_35px_rgba(255,255,255,0.25)] hover:scale-[1.02] transition-transform duration-200 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          className="w-[95%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[60%] max-w-[1200px] h-auto drop-shadow-[0_0_35px_rgba(255,255,255,0.25)] hover:scale-[1.02] transition-transform duration-200 ease-out"
           loading="eager" // Preload for better performance
         />
       </div>
@@ -187,7 +187,7 @@ export default function About() {
             muted
             playsInline
             preload="metadata" // Added for better loading
-            className="w-full md:w-[32rem] xl:w-[28rem] h-[18rem] md:h-[20rem] object-cover rounded-2xl border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.3)] transition-transform duration-200 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer transform-gpu"
+            className="w-full md:w-[32rem] xl:w-[28rem] h-[18rem] md:h-[20rem] object-cover rounded-2xl border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.3)] transition-transform duration-200 ease-out cursor-pointer transform-gpu"
             aria-label="Promotional video of SUIIT" // Added for accessibility
           />
         </div>

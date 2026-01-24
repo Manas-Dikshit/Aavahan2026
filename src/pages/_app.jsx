@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Script from "next/script";
 import { Chakra_Petch } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
 import { Bebas_Neue } from "next/font/google";
@@ -16,6 +17,13 @@ import { Analytics } from "@vercel/analytics/react";
 const SplashCursor = dynamic(() => import("@/components/SplashCursor"), {
   ssr: false,
 });
+
+const RedConfettiOverlay = dynamic(
+  () => import("@/components/RedConfettiOverlay"),
+  {
+    ssr: false,
+  }
+);
 
 const font_chakra = Chakra_Petch({
   subsets: ["latin"],
@@ -71,12 +79,10 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="shortcut icon" href="/Cultural Logo.svg" type="image/svg +xml " />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.setAttribute('data-scroll-behavior', 'smooth');`
-          }}
-        />
       </Head>
+      <Script id="smooth-scroll" strategy="afterInteractive">
+        {"document.documentElement.setAttribute('data-scroll-behavior', 'smooth');"}
+      </Script>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -86,6 +92,7 @@ export default function MyApp({ Component, pageProps }) {
         <main
           className={`${font_chakra.variable} ${font_clash_display.variable} ${font_ibm.variable} ${font_bebas.variable}`}
         >
+          <RedConfettiOverlay />
           <Component {...pageProps} />
           <Analytics />
           {showCursor && <SplashCursor />}
