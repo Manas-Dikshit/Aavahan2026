@@ -12,7 +12,7 @@ import Map from "@/components/Map";
 import fsPromises from "fs/promises";
 import path from "path";
 import RitModel from "@/components/RitModel";
-// ...existing code...
+
 import Marque1 from "@/components/Marque1";
 import School from "@/components/School";
 // import Image from "next/image";
@@ -43,7 +43,6 @@ const Home = () => {
 
       {isLoaded && <Clock />}
 
-    // ...existing code...
       <Marque1 />
 
       <School />
