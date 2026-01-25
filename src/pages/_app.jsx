@@ -18,13 +18,6 @@ const SplashCursor = dynamic(() => import("@/components/SplashCursor"), {
   ssr: false,
 });
 
-const RedConfettiOverlay = dynamic(
-  () => import("@/components/RedConfettiOverlay"),
-  {
-    ssr: false,
-  }
-);
-
 const font_chakra = Chakra_Petch({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -92,7 +85,6 @@ export default function MyApp({ Component, pageProps }) {
         <main
           className={`${font_chakra.variable} ${font_clash_display.variable} ${font_ibm.variable} ${font_bebas.variable}`}
         >
-          <RedConfettiOverlay />
           <Component {...pageProps} />
           <Analytics />
           {showCursor && <SplashCursor />}
