@@ -152,7 +152,7 @@ export default function MarvelMerchandise() {
           <img
             src="/spider.png"
             alt="Spider-Man"
-            className="w-[240px] sm:w-[340px] lg:w-[420px] drop-shadow-[0_0_60px_rgba(230,36,41,0.8)] transition-transform duration-700 hover:scale-110"
+            className="w-[240px] sm:w-[340px] lg:w-[420px] g transition-transform duration-700 hover:scale-110"
           />
         </div>
 

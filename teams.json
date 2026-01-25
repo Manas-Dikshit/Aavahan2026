@@ -393,21 +393,7 @@
               "img": "/TeamImages/moubani.jpg",
               "insta": "https://www.instagram.com/imou_rimi?igsh=bmlpbmpoZGRwYXpv",
               "linkedin": "https://www.linkedin.com/in/moubani-karmakar-7bb7bb362/"
-            },
-            {
-              "id": "v29",
-              "name": "Anshuman Ghosh",
-              "post": "",
-              "img": "/TeamImages/anshuman.jpg",
-              "linkedin": "https://www.linkedin.com/in/anshuman-ghosh-243a81257/"
-            },
-            {
-              "id": "v30",
-              "name": "Suman Panja",
-              "post": "",
-              "img": "/TeamImages/suman.jpg",
-              "insta": "https://www.instagram.com/suman.12503?igsh=OXpxc3U4MDY4Njhz"
-            },
+            },            
             {
               "id": "v31",
               "name": "Koushik Pramanik",
@@ -486,96 +472,6 @@
               "img": "/TeamImages/jyotish.jpg",
               "insta": "",
               "linkedin": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "DESIGN TEAM",
-      "sections": [
-        {
-          "name": "Design & Media",
-          "members": [
-            {
-              "id": "d1",
-              "name": "Souvik Dutta",
-              "post": "Design Lead Coordinator",
-              "img": "/TeamImages/souvik.jpg",
-              "insta": "https://www.instagram.com/frixzee.sd/profilecard/?igsh=aWZkajhzNjIzdDNj",
-              "linkedin": ""
-            },
-            {
-              "id": "d2",
-              "name": "Shib Shankar Das",
-              "post": "Design Lead & Media",
-              "img": "/TeamImages/shib.jpg",
-              "insta": "https://www.instagram.com/shib_sankar_das_721/",
-              "linkedin": "https://www.linkedin.com/in/shib-sankar-das-a635b6253/"
-            },
-            {
-              "id": "d3",
-              "name": "Vivek Kushal Chakraborty",
-              "post": "Design Coordinator",
-              "img": "/TeamImages/vivek.jpg",
-              "insta": "",
-              "linkedin": "https://www.linkedin.com/in/vivekkushalch/"
-            },
-            {
-              "id": "d4",
-              "name": "Subhro Mohanta",
-              "post": "Design Coordinator",
-              "img": "/TeamImages/subhro.jpg",
-              "insta": "https://www.instagram.com/just.subhro?igsh=MTcycm43Nzc5NTlneg==",
-              "linkedin": "https://www.linkedin.com/in/subhro-mohanta/"
-            },
-            {
-              "id": "d5",
-              "name": "Hrishikesh Das",
-              "post": "Design Coordinator & Media",
-              "img": "/TeamImages/TS.jpg",
-              "insta": "https://www.instagram.com/a_boy_name_hrishi/",
-              "linkedin": "https://www.linkedin.com/in/dashrishikesh"
-            },
-            {
-              "id": "d6",
-              "name": "Jeet Santra",
-              "post": "Media Lead",
-              "img": "/TeamImages/jeetSantra.jpg",
-              "insta": "https://www.instagram.com/iam__jeet_1603?igsh=MmtwcDl6cHlrNTFj",
-              "linkedin": "https://www.linkedin.com/in/jeet-santra-9919b536a/"
-            },
-            {
-              "id": "d7",
-              "name": "Surajit Sadhukhan",
-              "post": "Editor",
-              "img": "/TeamImages/surajit.jpg",
-              "insta": "https://www.instagram.com/_.suro_?igsh=MXJwb3FzanY2aWtjeg== ",
-              "linkedin": "https://www.linkedin.com/in/surajit-sadhukhan-4b5b62324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-              "id": "d8",
-              "name": "Aritra Mondal",
-              "post": "Editor",
-              "img": "/TeamImages/aritra.jpg",
-              "insta": " https://www.instagram.com/aritra.mondal.940436?igsh=MXJ3cDdpancxNmFocg==",
-              "linkedin": " https://www.linkedin.com/in/aritra-mondal-aa32a0325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-              "id": "d9",
-              "name": "Eman Mahato",
-              "post": "Editor",
-              "img": "/TeamImages/emon.jpg",
-              "insta": " https://www.instagram.com/em_eman_2005?igsh=MW0ycnZrdnB5ZjM2MA==",
-              "linkedin": "https://www.linkedin.com/in/eman-mahato-5726a7322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-              "id": "d10",
-              "name": "Mehul Singh ",
-              "post": "Editor",
-              "img": "/TeamImages/singh.jpg",
-              "insta": "",
-              "linkedin": "https://www.linkedin.com/in/mehul-kumar-singh-655b5432b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             }
           ]
         }
