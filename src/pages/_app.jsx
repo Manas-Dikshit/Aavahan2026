@@ -18,7 +18,6 @@ const SplashCursor = dynamic(() => import("@/components/SplashCursor"), {
   ssr: false,
 });
 
-
 const font_chakra = Chakra_Petch({
   subsets: ["latin"],
   weight: ["400", "700"],
