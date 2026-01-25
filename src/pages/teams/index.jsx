@@ -21,7 +21,7 @@ function Team(props) {
     >
       <div className="relative z-10">
         <Head>
-          <title>AAVAHAN26 2025 Teams</title>
+          <title>AAVAHAN26 Teams</title>
         </Head>
         <Header id="navbar" />
 
@@ -29,7 +29,7 @@ function Team(props) {
           <div className='h-[15rem] z-20 md:h-[20rem] bg-[url("/avengers.jpg")] object-fill text-white font-clash tracking-wide font-black 
           flex flex-col items-center justify-center'>
             <span className="text-[1rem] pt-12 md:pt-16 md:text-[4rem]">
-              AAVAHAN26' 2025
+              AAVAHAN 2026
             </span>
             <span className="text-[2.5rem] tracking-wider">CREW</span>
           </div>

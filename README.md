@@ -49,4 +49,4 @@ For official queries, please contact the organizing committee...
 
 ---
 
-© 2025 Sambalpur University Institute Of Information Technology, Sambalpur. All rights reserved.
+© 2026 Sambalpur University Institute Of Information Technology, Sambalpur. All rights reserved.
