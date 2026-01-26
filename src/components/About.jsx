@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Navlink from "./Navlink";
@@ -124,14 +125,30 @@ export default function About() {
       
       {/* About SUIIT Section */}
       <div className="relative mt-10 z-10">
-        <div className="flex justify-center mb-8 text-center">
+        <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-12 mb-8 text-center">
+          <Image
+            src="/Onemore.png"
+            alt="Superhero swinging pose"
+            width={140}
+            height={260}
+            className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-[0_0_18px_rgba(0,0,0,0.6)] -rotate-45"
+            priority
+          />
           <h2
             id="about-heading" // Added for accessibility
             ref={suiitHeading}
-            className="font-clash text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-extrabold bg-gradient-to-r from-blue-300 via-cyan-300 to-sky-500 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(0,204,255,0.5)] tracking-tight leading-tight"
+            className="font-clash text-[2.1rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] font-extrabold bg-gradient-to-r from-blue-300 via-cyan-300 to-sky-500 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(0,204,255,0.5)] tracking-tight leading-tight px-4"
           >
             About <Navlink name={"SUIIT"} link={"/#"} />
           </h2>
+          <Image
+            src="/Onemore.png"
+            alt="Superhero swinging pose"
+            width={140}
+            height={260}
+            className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-[0_0_18px_rgba(0,0,0,0.6)] rotate-45"
+            priority
+          />
         </div>
 
         <div

@@ -25,10 +25,10 @@ export default function EventsPage({ categories, posts }) {
       <Header id="navbar" />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[15rem] md:h-[22rem] flex flex-col items-center justify-center text-white font-clash font-black tracking-wider overflow-hidden">
+      <section className="relative w-full mt-[4.5rem] h-[18rem] md:h-[24rem] flex items-center justify-center text-white font-clash font-black tracking-wider overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/banner.png"
+            src="/Marvelheader.jpeg"
             alt="Aavahan Events Banner"
             fill
             priority
@@ -36,13 +36,27 @@ export default function EventsPage({ categories, posts }) {
             className="object-cover object-center brightness-[0.4]"
           />
         </div>
-        <div className="relative z-10 text-center">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl drop-shadow-lg">
-            AAVAHAN’26&nbsp;2025
-          </h1>
-          <p className="text-2xl md:text-4xl mt-3 text-main_primary tracking-[0.3em]">
-            EVENTS
-          </p>
+
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 px-4">
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl drop-shadow-lg">
+              AAVAHAN’26
+            </h1>
+            <p className="text-2xl md:text-4xl mt-3 text-main_primary tracking-[0.3em]">
+              EVENTS
+            </p>
+          </div>
+
+          <div className="w-24 sm:w-32 md:w-40 lg:w-48 xl:w-56 h-auto drop-shadow-[0_0_18px_rgba(0,0,0,0.7)]">
+            <Image
+              src="/iiiiiii.png"
+              alt="Armored hero illustration for events section"
+              width={230}
+              height={400}
+              priority
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 
