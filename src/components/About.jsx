@@ -121,19 +121,7 @@ export default function About() {
       role="main" // Added for accessibility
       aria-labelledby="about-heading"
     >
-      {/* AAVAHAN SVG Section - Made larger and more responsive for "perfectness" */}
-      <div
-        ref={trigger}
-        className="relative z-10 flex justify-center items-center mt-24 mb-24 px-4 sm:px-6 md:px-10"
-      >
-        <img
-          src="./about-aavahan.svg"
-          alt="AAVAHAN 26 - The Cultural Fest of SUIIT"
-          className="w-[95%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[60%] max-w-[1200px] h-auto drop-shadow-[0_0_35px_rgba(255,255,255,0.25)] hover:scale-[1.02] transition-transform duration-200 ease-out"
-          loading="eager" // Preload for better performance
-        />
-      </div>
-
+      
       {/* About SUIIT Section */}
       <div className="relative mt-10 z-10">
         <div className="flex justify-center mb-8 text-center">
