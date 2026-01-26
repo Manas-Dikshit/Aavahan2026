@@ -79,7 +79,7 @@ function Hero() {
           </button>
         </div>
 
-        {/* Poster Image */}
+        {/* Poster Image
         <div ref={poster} className="z-10 order-1 lg:order-2 opacity-0">
           <Image
             src="/club-poster-cultural.png"
@@ -89,7 +89,7 @@ function Hero() {
             className="w-[260px] sm:w-[340px] md:w-[420px] lg:w-[460px] object-contain rounded-2xl shadow-[0_0_40px_rgba(255,255,255,0.15)] border border-white/20 hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:scale-[1.03] transition-transform duration-300"
             draggable="false"
           />
-        </div>
+        </div> */}
       </div>      
     </section>
   );
