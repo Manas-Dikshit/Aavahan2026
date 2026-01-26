@@ -11,8 +11,8 @@ export default function MarvelMerchandise() {
   const merchRefs = useRef([]);
 
   const items = [
-    { name: "Aavahan Tee", image: "/merch/tee.png", price: "₹499" },
-    { name: "Aavahan Hoodie", image: "/merch/hoodie.png", price: "₹999" },
+    { name: "Aavahan T-shirt", image: "/3.png", price: "₹199" },
+    { name: "Aavahan Hoodie", image: "/2.png", price: "₹799" },
   ];
 
   useEffect(() => {
