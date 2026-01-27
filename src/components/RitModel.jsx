@@ -1,103 +1,88 @@
 import React from "react";
-import Link from "next/link";
+import Image from "next/image";
+
+const AavahanImage = ({ src, alt, className, sizes }) => (
+  <div className={`relative w-full h-64 sm:h-80 md:h-auto ${className || ""}`}>
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      sizes={sizes}
+      className="object-contain object-center bg-[#004aad]"
+      priority
+    />
+  </div>
+);
 
 export default function RitModel() {
-  const itemList = [
-    {
-      id: 1,
-      title: "Technical Events",
-      image: "/slider/tech.png",
-    },
-    {
-      id: 2,
-      title: "Robotics",
-      image: "/slider/robotics.jpeg",
-    },
-    {
-      id: 3,
-      title: "Games",
-      image: "/slider/games.jpg",
-    },
-    {
-      id: 4,
-      title: "Workshops",
-      image: "/slider/workshop.avif",
-    },
-    {
-      id: 5,
-      title: "Talkshows",
-      image: "/slider/events.jpg",
-    },
-  ];
-
-  React.useEffect(() => {
-    const ACTIVECLASS = "active";
-    const IMAGES = document.querySelectorAll(".flex-card-container");
-
-    IMAGES[0].classList.add(ACTIVECLASS);
-
-    function removeActiveClass() {
-      const elm = document.querySelector(`.${ACTIVECLASS}`);
-      if (elm) {
-        elm.classList.remove(ACTIVECLASS);
-      }
-    }
-
-    const t1 = setInterval(() => {
-      const current = document.querySelector(`.${ACTIVECLASS}`);
-      const next = current.nextElementSibling;
-      removeActiveClass();
-      if (next) {
-        next.classList.add(ACTIVECLASS);
-      } else {
-        IMAGES[0].classList.add(ACTIVECLASS);
-      }
-    }, 3000);
-
-    return () => {
-      clearInterval(t1);
-    };
-  }, []);
-
   return (
-    <div className="flex justify-center items-center flex-col lg:pt-12">
-      <h1 className="text-4xl md:text-6xl font-bold text-center text-white font-clash tracking-wider p-2 md:px-4">
-        Explore Your Interests
-      </h1>
+    <section
+      className="w-full flex justify-center items-center py-16 px-4 lg:pt-20 bg-[#004aad]"
+      aria-label="About AAVAHAN section"
+    >
+      <div className="w-full max-w-6xl flex flex-col items-center gap-10">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white font-clash tracking-wider">
+          About AAVAHAN
+        </h2>
 
-      <section className="flex flex-col items-center lg:items-stretch lg:flex-row justify-between w-[90%] max-w-[70rem] lg:h-[70vh] h-[100vh] mt-12">
-        {itemList.map((item) => (
-          <article
-            key={item.id}
-            className="flex-card-container bg-cover bg-no-repeat"
-            style={{
-              backgroundImage: `url(${item.image})`,
-            }}
-          >
-            <div className="bg-gradient-to-t from-black/20 to-transparent  w-full h-full">
-              <div className="absolute bottom-0 left-0 w-full py-4 px-2 flex items-center justify-center gap-3">
-                <h1 className="text-xl lg:text-4xl font-bold text-center uppercase text-white font-clash rotate-180">
-                  {item.title}
-                </h1>
-                <div className="rotate-180 text-white hover:text-main_primary transition-colors duration-300">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-6 h-6 lg:w-8 lg:h-8 lg:block"
-                  >
-                    <path d="M15.41 16.59L14 18l-6-6 6-6 1.41 1.41L10.83 12l4.58 4.59z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <Link href={`/events`} className="absolute inset-0">
-              <div className="h-full w-full"></div>
-            </Link>
+        <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-10 lg:gap-12 w-full">
+          {/* Mobile Top Image */}
+          <div className="md:hidden">
+            <AavahanImage
+              src="/ca.png"
+              alt="Cultural highlights of AAVAHAN"
+              sizes="(max-width: 768px) 100vw"
+            />
+          </div>
+
+          {/* Left Image (Desktop/Tablet) */}
+          <div className="hidden md:flex md:w-1/5 lg:w-1/5 items-stretch">
+            <AavahanImage
+              src="/ca.png"
+              alt="AAVAHAN cultural highlights"
+              sizes="(min-width: 1024px) 20vw, (min-width: 768px) 24vw"
+            />
+          </div>
+
+          {/* Center Text */}
+          <article className="w-full md:w-3/5 lg:w-3/5 rounded-3xl border border-cyan-400/20 shadow-[0_0_45px_rgba(0,255,255,0.2)] p-6 sm:p-8 md:p-8 lg:p-10 backdrop-blur-md bg-gradient-to-br from-[#003a8c] via-[#004aad] to-[#005be0]">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl font-chakra text-white/90 leading-relaxed text-justify">
+              <span className="font-semibold text-cyan-300">AAVAHAN</span> is the annual cultural fest of Sambalpur
+              University Institute of Information Technology, Jyoti Vihar, Burla. It’s celebrated with great enthusiasm
+              and participation from students and professionals across the region. The event showcases talent,
+              innovation, and creativity through competitions, workshops, and performances.
+              <br />
+              <br />
+              Over the years, AAVAHAN has become a much-anticipated event, creating memorable experiences and showcasing
+              powerful organizational acumen — culminating in vibrant celebrity nights on the SUIIT campus.
+              <br />
+              <br />
+              Every year, this festival welcomes thousands of technical and non-technical students from across Odisha
+              and beyond, offering an opportunity to experience the rich culture of Western Odisha. What began in 2014
+              as a small college function has, within a decade, built its own reputation across the state. The 13th
+              edition celebrates 15 years of SUIIT’s excellence — a milestone of pride and progress.
+            </p>
           </article>
-        ))}
-      </section>
-    </div>
+
+          {/* Right Image (Desktop/Tablet) */}
+          <div className="hidden md:flex md:w-1/5 lg:w-1/5 items-stretch">
+            <AavahanImage
+              src="/ra.png"
+              alt="Crowd and performances at AAVAHAN"
+              sizes="(min-width: 1024px) 20vw, (min-width: 768px) 24vw"
+            />
+          </div>
+
+          {/* Mobile Bottom Image */}
+          <div className="md:hidden">
+            <AavahanImage
+              src="/ra.png"
+              alt="AAVAHAN crowd and performances"
+              sizes="(max-width: 768px) 100vw"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
