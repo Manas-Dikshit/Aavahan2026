@@ -26,13 +26,43 @@ function Team(props) {
         <Header id="navbar" />
 
         <main>
-          <div className='h-[15rem] z-20 md:h-[20rem] bg-[url("/avengers.jpg")] object-fill text-white font-clash tracking-wide font-black 
-          flex flex-col items-center justify-center'>
-            <span className="text-[1rem] pt-12 md:pt-16 md:text-[4rem]">
-              AAVAHAN 2026
-            </span>
-            <span className="text-[2.5rem] tracking-wider">CREW</span>
-          </div>
+          {/* Teams Hero Section */}
+          <section className="relative w-full mt-[4.5rem] h-[16rem] md:h-[22rem] flex items-center justify-center text-white font-clash tracking-wide font-black overflow-hidden">
+            {/* Placeholder for future banner background image */}
+            {false && (
+              <div className="absolute inset-0">
+                <Image
+                  src="/teams-banner-placeholder.png"
+                  alt="Teams banner placeholder"
+                  fill
+                  priority
+                  className="object-cover object-center opacity-60"
+                />
+              </div>
+            )}
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 px-4">
+              <div className="text-center md:text-left">
+                <span className="block text-[1.6rem] md:text-[3.2rem] lg:text-[3.8rem]">
+                  AAVAHAN'26
+                </span>
+                <span className="block text-[2.3rem] md:text-[3rem] lg:text-[3.4rem] tracking-wider">
+                  CREW
+                </span>
+              </div>
+
+              <div className="w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 h-auto drop-shadow-[0_0_18px_rgba(0,0,0,0.7)]">
+                <Image
+                  src="/hulk.webp"
+                  alt="Heroic character illustration for AAVAHAN crew"
+                  width={350}
+                  height={420}
+                  priority
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          </section>
 
         {/* Fixed horizontal scrollable tab navigation */}
         <div className="w-full overflow-x-auto px-4 py-8">
