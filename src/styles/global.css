@@ -276,6 +276,31 @@ progress::-webkit-progress-value {
   animation: spin-slow 6s linear infinite;
 }
 
+/* Subtle floating/bouncing character motions */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(4px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 5s ease-in-out infinite;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
