@@ -24,8 +24,15 @@ export default function MarvelMerchandise() {
 
     if (!section || !blast || !spider || merch.length === 0) return;
 
-    gsap.set([blast, spider, ...merch], { opacity: 0 });
-    gsap.set(merch, { y: 60, rotateY: 20 });
+    // Initial setup
+    gsap.set([blast, spider], { opacity: 0 });
+
+    if (isMobile) {
+      // On mobile, we start them at 0 to animate them IN via the timeline
+      gsap.set(merch, { opacity: 0, y: 20 });
+    } else {
+      gsap.set(merch, { opacity: 0, y: 60, rotateY: 20 });
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -35,6 +42,7 @@ export default function MarvelMerchandise() {
       },
     });
 
+    // 1. The Blast Effect
     tl.to(blast, {
       opacity: 1,
       scale: 2,
@@ -47,13 +55,22 @@ export default function MarvelMerchandise() {
         duration: 0.8,
         ease: "power2.inOut",
       })
+      // 2. Spider-Man Enters
       .fromTo(
         spider,
         { opacity: 0, scale: 0.5, y: 150, rotateY: -45 },
-        { opacity: 1, scale: 1, y: 0, rotateY: 0, duration: 1, ease: "elastic.out(1, 0.6)" },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          rotateY: 0,
+          duration: 1,
+          ease: "elastic.out(1, 0.6)",
+        },
         "-=0.2"
       );
 
+    // 3. Sequential Animation based on Device
     if (isMobile) {
       tl.to(spider, {
         opacity: 0,
@@ -62,18 +79,15 @@ export default function MarvelMerchandise() {
         duration: 0.8,
         ease: "power2.inOut",
         delay: 0.6,
-      }).to(
-        merch,
-        {
-          opacity: 1,
-          y: 0,
-          rotateY: 0,
-          stagger: 0.25,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.2"
-      );
+      })
+      .to(merch, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 0.6,
+        ease: "power2.out",
+        clearProps: "all" // Clears GSAP styles so CSS hover effects work
+      }, "-=0.4");
     } else {
       tl.to(spider, {
         x: -80,
@@ -94,7 +108,7 @@ export default function MarvelMerchandise() {
       );
     }
 
-    // Parallax mouse tilt
+    // Parallax mouse tilt (Desktop only effectively)
     const handleMouseMove = (e) => {
       const rect = section.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -108,6 +122,7 @@ export default function MarvelMerchandise() {
         duration: 0.6,
       });
     };
+
     section.addEventListener("mousemove", handleMouseMove);
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -123,8 +138,6 @@ export default function MarvelMerchandise() {
         backgroundColor: "#004aad",
       }}
     >
-      {/* Background now matches hero solid color (#004aad) */}
-
       {/* Header */}
       <div className="relative z-20 text-center mb-16 px-6">
         <h2 className="text-[2.8rem] md:text-[4.2rem] font-extrabold uppercase tracking-tight bg-gradient-to-r from-white via-blue-300 to-red-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,74,173,0.6)]">
@@ -152,7 +165,7 @@ export default function MarvelMerchandise() {
           <img
             src="/spider.png"
             alt="Spider-Man"
-            className="w-[240px] sm:w-[340px] lg:w-[420px] g transition-transform duration-700 hover:scale-110"
+            className="w-[240px] sm:w-[340px] lg:w-[420px] transition-transform duration-700 hover:scale-110"
           />
         </div>
 
@@ -162,7 +175,7 @@ export default function MarvelMerchandise() {
             <div
               key={i}
               ref={(el) => (merchRefs.current[i] = el)}
-              className="relative aspect-square w-full sm:w-[260px] md:w-[300px] lg:w-[340px] rounded-3xl overflow-hidden glass-card shadow-xl hover:shadow-2xl transition-all duration-500 opacity-0 translate-y-12 transform-style-3d hover:rotateY-6"
+              className="relative aspect-square w-full sm:w-[260px] md:w-[300px] lg:w-[340px] rounded-3xl overflow-hidden glass-card shadow-xl hover:shadow-2xl transition-all duration-500 transform-style-3d"
             >
               <div className="relative w-full h-full group perspective">
                 <img
@@ -188,7 +201,6 @@ export default function MarvelMerchandise() {
       {/* Gradient bar */}
       <div className="absolute bottom-0 left-0 w-full h-[6px] bg-gradient-to-r from-[#004aad] via-blue-400 to-red-500 opacity-90 blur-sm"></div>
 
-      {/* Style */}
       <style jsx>{`
         .glass-card {
           background: rgba(0, 74, 173, 0.2);
@@ -203,26 +215,6 @@ export default function MarvelMerchandise() {
         }
         .perspective {
           perspective: 1000px;
-        }
-        @keyframes float {
-          0% {
-            transform: translateY(0px) translateX(0px);
-          }
-          50% {
-            transform: translateY(-40px) translateX(20px);
-          }
-          100% {
-            transform: translateY(0px) translateX(0px);
-          }
-        }
-        @keyframes pulse-slow {
-          0%,
-          100% {
-            opacity: 0.3;
-          }
-          50% {
-            opacity: 0.6;
-          }
         }
       `}</style>
     </div>

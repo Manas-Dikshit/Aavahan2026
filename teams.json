@@ -32,52 +32,28 @@
       "name": "ORGANIZERS",
       "sections": [
         {
-          "name": "Techfest Committee",
+          "name": "CulturalFest Committee",
           "members": [
             {
               "id": "tf1",
               "name": "Hrishikesh Das",
-              "post": "Technical Secretary",
+              "post": "Cultural Secretary",
               "img": "/TeamImages/TS.jpg",
               "insta": "https://www.instagram.com/a_boy_name_hrishi/",
               "linkedin": "https://www.linkedin.com/in/dashrishikesh"
             },
             {
               "id": "tf2",
-              "name": "Ayush Sharma",
-              "post": "Assistant Technical Secretary",
-              "img": "/TeamImages/ayush.jpg",
+              "name": "Soubhagya Laxmi Das",
+              "post": "Assistant Cultural Secretary",
+              "img": "/team/Soubhagya.jpeg",
               "linkedin": "",
               "insta": ""
-            },
-            {
-              "id": "tf3",
-              "name": "Ansh Kumar Shaw",
-              "post": "Assistant Technical Secretary",
-              "img": "/TeamImages/ansh.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "tf4",
-              "name": "Rishab Raj",
-              "post": "Assistant Technical Secretary",
-              "img": "/TeamImages/rishab.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "tf5",
-              "name": "Annuradha Kumari",
-              "post": "Assistant Technical Secretary",
-              "img": "/TeamImages/anuradha.jpg",
-              "insta": "",
-              "linkedin": ""
             }
           ]
         },
         {
-          "name": "Technical Support Team",
+          "name": "Dance Divine",
           "members": [
             {
               "id": "c1",
