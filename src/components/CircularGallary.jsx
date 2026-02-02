@@ -507,13 +507,14 @@ export default function CircularGallery({
 }) {
   const containerRef = useRef(null);
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container) return;
     
     // Small delay to ensure container has dimensions
     const timeoutId = setTimeout(() => {
-      if (!containerRef.current) return;
+      if (!container) return;
       
-      const app = new App(containerRef.current, {
+      const app = new App(container, {
         items,
         bend,
         textColor,
@@ -524,13 +525,13 @@ export default function CircularGallery({
       });
       
       // Store app instance for cleanup
-      containerRef.current._appInstance = app;
+      container._appInstance = app;
     }, 100);
 
     return () => {
       clearTimeout(timeoutId);
-      if (containerRef.current?._appInstance) {
-        containerRef.current._appInstance.destroy();
+      if (container?._appInstance) {
+        container._appInstance.destroy();
       }
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
