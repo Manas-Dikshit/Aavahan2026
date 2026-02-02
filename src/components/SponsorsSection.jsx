@@ -97,10 +97,15 @@ export default function SponsorsSection() {
             transition={{ delay: 0.3, duration: 0.7 }}
             className="mt-12"
           >
-            <button className="mt-5 px-5 py-5 bg-main_primary text-white font-semibold font-clash rounded-lg shadow-md hover:bg-white hover:text-main_primary hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300">
+            <a
+              href="https://forms.gle/XCUcUGViUcQ9aWv48"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Become a Sponsor - open form in new tab"
+              className="mt-5 inline-flex items-center justify-center px-5 py-5 bg-main_primary text-white font-semibold font-clash rounded-lg shadow-md hover:bg-white hover:text-main_primary hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300"
+            >
               <span className="relative z-12">Become a Sponsor</span>
-              
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>
