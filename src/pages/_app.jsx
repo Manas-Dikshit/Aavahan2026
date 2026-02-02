@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Script from "next/script";
-import { Chakra_Petch } from "next/font/google";
+import { Chakra_Petch, Poppins } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
 import { Bebas_Neue } from "next/font/google";
 import LocalFont from "next/font/local";
@@ -40,6 +40,12 @@ const font_clash_display = LocalFont({
   src: "../fonts/ClashDisplay-Variable.ttf",
   variable: "--font-clash-display",
 });
+
+const font = Poppins({
+  subsets:['latin'],
+  weight:['100','300','400','500','600','700'],
+  variable:'--font-poppins'
+})
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -83,7 +89,7 @@ export default function MyApp({ Component, pageProps }) {
         transition={{ duration: 0.5 }}
       >
         <main
-          className={`${font_chakra.variable} ${font_clash_display.variable} ${font_ibm.variable} ${font_bebas.variable}`}
+          className={`${font.variable} ${font_chakra.variable} ${font_clash_display.variable} ${font_ibm.variable} ${font_bebas.variable}`}
         >
           <Component {...pageProps} />
           <Analytics />

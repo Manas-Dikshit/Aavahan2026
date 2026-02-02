@@ -47,11 +47,20 @@ export default function Footer() {
           <p className="font-semibold text-2xl md:text-[1.7rem] text-white mb-2">Quick Links</p>
           <div className="flex gap-10 text-[1rem] md:text-[1.1rem] font-chakra flex-wrap">
             <div className="flex flex-col gap-2 w-[6rem]">
-              {["Home", "Events", "Brochure"].map((name) => (
-                <div key={name} className="hover:text-white transition-colors duration-300">
-                  <Navlink name={name} link={`/${name === "Home" ? "" : name.toLowerCase()}`} />
-                </div>
-              ))}
+              {["Home", "Events", "Brochure"].map((name) => {
+                if (name === "Brochure") {
+                  return (
+                    <div key={name} className="hover:text-white transition-colors duration-300">
+                      <a href="/Brochure.pdf" download>{name}</a>
+                    </div>
+                  )
+                }
+                return (
+                  <div key={name} className="hover:text-white transition-colors duration-300">
+                    <Navlink name={name} link={`/${name === "Home" ? "" : name.toLowerCase()}`} />
+                  </div>
+                )
+              })}
             </div>
             <div className="flex flex-col gap-2">
               {["Teams", "Contact"].map((name) => (

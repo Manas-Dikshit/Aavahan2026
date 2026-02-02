@@ -73,6 +73,26 @@ function EventsDetails(props) {
                     {props.content}
                   </h3>
                   <p>{props.description}</p>
+
+                  {(props.date || props.time || props.venue) && (
+                    <div className="mt-4 text-sm md:text-base text-white/80 font-chakra space-y-1">
+                      {props.date && (
+                        <div>
+                          <span className="text-white/60">Date:</span> {props.date}
+                        </div>
+                      )}
+                      {props.time && (
+                        <div>
+                          <span className="text-white/60">Time:</span> {props.time}
+                        </div>
+                      )}
+                      {props.venue && (
+                        <div>
+                          <span className="text-white/60">Venue:</span> {props.venue}
+                        </div>
+                      )}
+                    </div>
+                  )}
                   <h3 className="text-white text-[1.5rem] font-sans font-bold mb-2 mt-4">
                     Head Coordinator
                   </h3>
@@ -85,7 +105,7 @@ function EventsDetails(props) {
                   </div>
                 </div>
 
-                {props.reg === "Register Here" && props.reglink ? (
+                {props.reg === "Register Here" && props.reglink && props.reglink !== "Coming Soon" ? (
                   <a
                     href={props.reglink.trim()}
                     target="_blank"
@@ -141,10 +161,8 @@ export async function getStaticPaths() {
   const objectData = JSON.parse(jsonData);
 
   const paths = [];
-  objectData.posts.forEach((post) => {
-    post.forEach((post) => {
-      paths.push({ params: { id: post.id.toString() } });
-    });
+  objectData.events.forEach((event) => {
+    paths.push({ params: { id: event.id.toString() } });
   });
 
   return {
@@ -160,7 +178,7 @@ export async function getStaticProps(context) {
 
   const id = context.params.id;
 
-  const post = objectData.posts.flat().find((post) => post.id == id);
+  const post = objectData.events.find((event) => event.id == id);
 
   return {
     props: {
@@ -168,6 +186,9 @@ export async function getStaticProps(context) {
       image: post.img,
       content: post.content,
       description: post.description,
+      date: post.date || "",
+      time: post.time || "",
+      venue: post.venue || "",
       c1name: post.c1name,
       c2name: post.c2name,
       register: post.reg,

@@ -7,6 +7,9 @@ module.exports = {
   theme: {
   	extend: {
   		fontFamily: {
+			poppins:[
+				'var(--font-poppins)'
+			],
   			clash: [
   				'var(--font-clash-display)'
   			],

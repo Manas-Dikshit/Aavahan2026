@@ -121,6 +121,11 @@ export default function Header() {
                 <Navlink name={"CONTACT"} link={"/contact"} setToggle={setOpen} />
                 <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 09</p>
               </div>
+
+              <div className="relative hackNav hover:bg-white/10 text-white w-full text-left pl-4 pr-6 py-4">
+                <a href="/Brochure.pdf" download className="block">BROCHURE</a>
+                <p className="absolute right-4 top-3 text-xs font-bold text-transparent navPageNo">PAGE 10</p>
+              </div>
             </div>
           </div>
         </motion.div>

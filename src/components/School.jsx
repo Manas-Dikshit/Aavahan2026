@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -38,12 +39,12 @@ export default function School() {
               One fest Endless memories,  Be there
             </p>
 
-            <a
-              href="#"
+            <Link
+              href="/events"
               className="px-12 py-3 bg-main_primary text-white font-semibold rounded-md hover:bg-white hover:text-main_primary transition"
             >
               Register Now
-            </a>
+            </Link>
 
           </div>
         </div>
