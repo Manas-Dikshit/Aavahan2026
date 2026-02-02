@@ -11,7 +11,6 @@ import "../styles/global.css";
 import "../styles/styles.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { motion } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 
 const SplashCursor = dynamic(() => import("@/components/SplashCursor"), {
@@ -82,12 +81,7 @@ export default function MyApp({ Component, pageProps }) {
       <Script id="smooth-scroll" strategy="afterInteractive">
         {"document.documentElement.setAttribute('data-scroll-behavior', 'smooth');"}
       </Script>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div>
         <main
           className={`${font.variable} ${font_chakra.variable} ${font_clash_display.variable} ${font_ibm.variable} ${font_bebas.variable}`}
         >
@@ -95,7 +89,7 @@ export default function MyApp({ Component, pageProps }) {
           <Analytics />
           {showCursor && <SplashCursor />}
         </main>
-      </motion.div>
+      </div>
     </>
   );
 }

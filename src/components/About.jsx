@@ -1,16 +1,52 @@
-import { useEffect, useRef } from "react";
+"use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Navlink from "./Navlink";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function About() {
   const trigger = useRef(null);
   const suiitHeading = useRef(null);
   const aboutbit = useRef(null);
   const videoRef = useRef(null);
+  const videoObserverTargetRef = useRef(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const el = videoObserverTargetRef.current;
+    if (!el || shouldLoadVideo) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShouldLoadVideo(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, [shouldLoadVideo]);
+
+  useEffect(() => {
+    if (!shouldLoadVideo) return;
+    const v = videoRef.current;
+    if (!v) return;
+    try {
+      v.load();
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    } catch {
+      // ignore
+    }
+  }, [shouldLoadVideo]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -111,7 +147,6 @@ export default function About() {
 
     return () => {
       ctx.revert();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
@@ -184,17 +219,25 @@ export default function About() {
             technology.
           </p>
 
-          <video
-            ref={videoRef}
-            src="/b2b.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata" // Added for better loading
-            className="w-full md:w-[32rem] xl:w-[28rem] h-[18rem] md:h-[20rem] object-cover rounded-2xl border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.3)] transition-transform duration-200 ease-out cursor-pointer transform-gpu"
-            aria-label="Promotional video of SUIIT" // Added for accessibility
-          />
+          <div ref={videoObserverTargetRef} className="w-full md:w-[32rem] xl:w-[28rem]">
+            <video
+              ref={videoRef}
+              src={shouldLoadVideo ? "/b2b.mp4" : undefined}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="w-full h-[18rem] md:h-[20rem] object-cover rounded-2xl border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.3)] transition-transform duration-200 ease-out cursor-pointer transform-gpu"
+              aria-label="Promotional video of SUIIT"
+            />
+            {!shouldLoadVideo && (
+              <div
+                aria-hidden="true"
+                className="mt-[-20rem] md:mt-[-20rem] h-[18rem] md:h-[20rem] rounded-2xl bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-white/10"
+              />
+            )}
+          </div>
         </div>
       </div>
 

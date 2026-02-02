@@ -1,8 +1,12 @@
+"use client";
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function MarvelMerchandise() {
   const sectionRef = useRef(null);
@@ -125,7 +129,8 @@ export default function MarvelMerchandise() {
 
     section.addEventListener("mousemove", handleMouseMove);
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      tl.scrollTrigger?.kill();
+      tl.kill();
       section.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
@@ -162,10 +167,13 @@ export default function MarvelMerchandise() {
           ref={spidermanRef}
           className="flex justify-center items-center lg:w-[380px] lg:h-[550px] transform-style-3d"
         >
-          <img
+          <Image
             src="/spider.png"
             alt="Spider-Man"
-            className="w-[240px] sm:w-[340px] lg:w-[420px] transition-transform duration-700 hover:scale-110"
+            width={420}
+            height={560}
+            sizes="(max-width: 640px) 240px, (max-width: 1024px) 340px, 420px"
+            className="w-[240px] sm:w-[340px] lg:w-[420px] h-auto transition-transform duration-700 hover:scale-110"
           />
         </div>
 
@@ -178,10 +186,12 @@ export default function MarvelMerchandise() {
               className="relative aspect-square w-full sm:w-[260px] md:w-[300px] lg:w-[340px] rounded-3xl overflow-hidden glass-card shadow-xl hover:shadow-2xl transition-all duration-500 transform-style-3d"
             >
               <div className="relative w-full h-full group perspective">
-                <img
+                <Image
                   src={item.image}
                   alt={item.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 340px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/90 via-[#004aad]/60 to-transparent flex flex-col justify-end p-6">
                   <h3 className="text-blue-100 text-xl md:text-2xl font-bold uppercase tracking-wide">

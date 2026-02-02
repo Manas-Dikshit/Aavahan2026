@@ -530,9 +530,8 @@ export default function CircularGallery({
 
     return () => {
       clearTimeout(timeoutId);
-      if (container?._appInstance) {
-        container._appInstance.destroy();
-      }
+      const app = container._appInstance;
+      if (app) app.destroy();
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
 

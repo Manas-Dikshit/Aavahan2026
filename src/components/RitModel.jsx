@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const AavahanImage = ({ src, alt, className, sizes }) => (
+const AavahanImage = ({ src, alt, className, sizes, priority = false }) => (
   <div className={`relative w-full h-64 sm:h-80 md:h-auto ${className || ""}`}>
     <Image
       src={src}
@@ -9,7 +9,8 @@ const AavahanImage = ({ src, alt, className, sizes }) => (
       fill
       sizes={sizes}
       className="object-contain object-center bg-[#004aad]"
-      priority
+      priority={priority}
+      loading={priority ? undefined : "lazy"}
     />
   </div>
 );
