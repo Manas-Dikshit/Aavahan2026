@@ -4,33 +4,41 @@ import Image from "next/image";
 import { gsap } from "gsap";
 
 function Hero() {
+  const root = useRef(null);
   const title = useRef(null);
   const title1 = useRef(null);
   const subtitle = useRef(null);
   const subtitle2 = useRef(null);
   const date = useRef(null);
-  const poster = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { duration: 1.2, ease: "power3.out" } });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { duration: 1.2, ease: "power3.out" } });
 
-    tl.fromTo(title.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0, delay: 0.3 })
-      .fromTo(title1.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, "-=0.8")
-      .fromTo(subtitle.current, { opacity: 0, y: 80 }, { opacity: 1, y: 0 }, "-=0.6")
-      .fromTo(subtitle2.current, { opacity: 0, y: 60 }, { opacity: 1, y: 0 }, "-=0.5")
-      .fromTo(date.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, "-=0.4")
-      .fromTo(poster.current, { opacity: 0, scale: 0.9, y: 60 }, { opacity: 1, scale: 1, y: 0 }, "-=1");
+      tl.fromTo(title.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0, delay: 0.3 })
+        .fromTo(title1.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, "-=0.8")
+        .fromTo(subtitle.current, { opacity: 0, y: 80 }, { opacity: 1, y: 0 }, "-=0.6")
+        .fromTo(subtitle2.current, { opacity: 0, y: 60 }, { opacity: 1, y: 0 }, "-=0.5")
+        .fromTo(date.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, "-=0.4");
+    }, root);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="hero relative py-10 md:py-16 h-fit flex flex-col justify-center overflow-hidden">
+    <section
+      ref={root}
+      className="hero relative py-10 md:py-16 h-fit flex flex-col justify-center overflow-hidden"
+    >
       {/* ✅ Logo */}
       <div className="flex justify-center items-center mb-8 mt-6 z-10">
         <Image
           src="/Cultural logo.svg"
           alt="AAVAHAN26"
-          width={0}
-          height={0}
+          width={192}
+          height={192}
+          priority
+          sizes="(max-width: 640px) 7rem, (max-width: 768px) 9rem, (max-width: 1024px) 11rem, 12rem"
           className="w-28 sm:w-36 md:w-44 lg:w-48 object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
           draggable="false"
         />
@@ -72,11 +80,13 @@ function Hero() {
             CULTURAL FEST
           </span>
 
-          <button className="mt-8 px-10 py-3 bg-main_primary text-white font-semibold font-clash rounded-lg shadow-md hover:bg-white hover:text-main_primary hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300">
-            <a href="/Brochure.pdf" download>
-              DOWNLOAD BROCHURE
-            </a>
-          </button>
+          <a
+            href="/Brochure.pdf"
+            download
+            className="mt-8 inline-flex items-center justify-center px-10 py-3 bg-main_primary text-white font-semibold font-clash rounded-lg shadow-md hover:bg-white hover:text-main_primary hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300"
+          >
+            DOWNLOAD BROCHURE
+          </a>
         </div>
 
         {/* Poster Image

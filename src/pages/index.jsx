@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Brand from "@/components/brand";
-import About from "@/components/About";
+const About = dynamic(() => import("@/components/About"), { ssr: false });
 import Marque2 from "@/components/Marque2";
 import Footer from "@/components/Footer";
 import Faq from "@/components/Faq";
-import Clock from "@/components/Clock";
 import Map from "@/components/Map";
 import fsPromises from "fs/promises";
 import path from "path";
-import RitModel from "@/components/RitModel";
 
 import Marque1 from "@/components/Marque1";
-import School from "@/components/School";
+const School = dynamic(() => import("@/components/School"), { ssr: false });
 // import Image from "next/image";
-import Merchandise from "@/components/Merchandise";
-import SponsorsSection from "@/components/SponsorsSection";
+
+const Clock = dynamic(() => import("@/components/Clock"), { ssr: false });
+const RitModel = dynamic(() => import("@/components/RitModel"));
+const Merchandise = dynamic(() => import("@/components/Merchandise"), { ssr: false });
+const SponsorsSection = dynamic(() => import("@/components/SponsorsSection"));
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -45,12 +47,12 @@ const Home = () => {
 
       <Marque1 />
 
-      <School />
+      {isLoaded && <School />}
 
       <div className="bg-gradient-to-b from-primary to-transparent">
-        <RitModel />
+        {isLoaded && <RitModel />}
         <section id="about">
-          <About />
+          {isLoaded && <About />}
         </section>
       </div>
 
@@ -61,11 +63,11 @@ const Home = () => {
       </section>
 
       <section id="merchandise">
-        <Merchandise />
+        {isLoaded && <Merchandise />}
       </section>
 
       <section id="sponsors">
-        <SponsorsSection />
+        {isLoaded && <SponsorsSection />}
       </section>
 
       <Map />

@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
@@ -7,6 +9,27 @@ if (typeof window !== "undefined") {
 }
 
 export default function School() {
+  const videoObserverTargetRef = useRef(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const el = videoObserverTargetRef.current;
+    if (!el || shouldLoadVideo) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShouldLoadVideo(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, [shouldLoadVideo]);
+
   return ( 
 
     <section className="w-full mt-2 bg-gradient-to-br from-soothing_black via-primary to-black text-white overflow-hidden">
@@ -19,14 +42,23 @@ export default function School() {
         <div className="relative w-full">
 
           {/* VIDEO */}
-          <video
-            src="/Events.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-[70vh] md:h-[80vh] lg:h-[85vh] object-cover rounded-2xl"
-          />
+          <div ref={videoObserverTargetRef} className="w-full">
+            <video
+              src={shouldLoadVideo ? "/Events.mp4" : undefined}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="w-full h-[70vh] md:h-[80vh] lg:h-[85vh] object-cover rounded-2xl"
+            />
+            {!shouldLoadVideo && (
+              <div
+                aria-hidden="true"
+                className="mt-[-85vh] h-[70vh] md:h-[80vh] lg:h-[85vh] rounded-2xl bg-gradient-to-b from-white/5 via-white/0 to-black/30"
+              />
+            )}
+          </div>
 
           {/* TEXT OVERLAY */}
           <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 md:pb-10 bg-gradient-to-t from-black/70 via-black/30 to-transparent rounded-2xl">
