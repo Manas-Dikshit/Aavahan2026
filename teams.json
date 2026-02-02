@@ -36,11 +36,11 @@
           "members": [
             {
               "id": "tf1",
-              "name": "Hrishikesh Das",
+              "name": "Ayush Pradhan",
               "post": "Cultural Secretary",
-              "img": "/TeamImages/TS.jpg",
-              "insta": "https://www.instagram.com/a_boy_name_hrishi/",
-              "linkedin": "https://www.linkedin.com/in/dashrishikesh"
+              "img": "/team/ayush.jpeg",
+              "insta": "",
+              "linkedin": ""
             },
             {
               "id": "tf2",
@@ -61,391 +61,55 @@
               "post": "",
               "img": "/TeamImages/vivek.jpg",
               "insta": "",
-              "linkedin": "https://www.linkedin.com/in/vivekkushalch/"
+              "linkedin": ""
             },
             {
               "id": "c2",
-              "name": "Subhro Mohanta",
-              "post": "",
-              "img": "/TeamImages/subhro.jpg",
-              "insta": "https://www.instagram.com/just.subhro?igsh=MTcycm43Nzc5NTlneg==",
-              "linkedin": "https://www.linkedin.com/in/subhro-mohanta/"
-            },
-            {
-              "id": "c3",
-              "name": "Shib Shankar Das",
-              "post": "",
-              "img": "/TeamImages/shib.jpg",
-              "insta": "https://www.instagram.com/shib_sankar_das_721/",
-              "linkedin": "https://www.linkedin.com/in/shib-sankar-das-a635b6253/"
-            },
-            {
-              "id": "c4",
-              "name": "Dipak Biswakarma",
-              "post": "",
-              "img": "/TeamImages/dipak.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "c5",
-              "name": "Amit Mondal",
-              "post": "",
-              "img": "/TeamImages/amit.jpg",
-              "insta": "https://www.instagram.com/amit14_02",
-              "linkedin": "https://www.linkedin.com/in/amit-mondal-578618218/"
-            },
-            {
-              "id": "c6",
-              "name": "Jyotirmoy Mandal",
-              "post": "",
-              "img": "/TeamImages/JYOTIRMOY.jpg",
-              "insta": "https://www.instagram.com/_jyotirmoy02?igsh=MW91ZGdvbWdyNjdweA==",
-              "linkedin": "http://www.linkedin.com/in/jyotirmoy-mandal-7a07a4362"
-            },
-            {
-              "id": "c7",
-              "name": "Debdeep Mahapatra",
-              "post": "",
-              "img": "/TeamImages/DEBDEEP.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "c8",
-              "name": "Shayeri Ghosh",
-              "post": "",
-              "img": "/TeamImages/shayeri.jpg",
-              "insta": "https://www.instagram.com/its_miss_leo_18?igsh=MTU2bnJtZWIwa3FkMw==",
-              "linkedin": "https://www.linkedin.com/in/shayeri-ghosh-92777b230"
-            },
-            {
-              "id": "c9",
-              "name": "Soham Kar",
-              "post": "",
-              "img": "/TeamImages/soham.jpg",
-              "insta": "https://www.instagram.com/sohamkar_sk/",
-              "linkedin": "https://www.linkedin.com/in/soham-kar-?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-              "id": "c10",
-              "name": "Shraddha Kumari",
-              "post": "",
-              "img": "/TeamImages/shraddha.jpg",
+              "name": "Arpita Sahu",
+              "post": "Lead",
+              "img": "/team/dance.jpeg",
               "insta": "",
               "linkedin": ""
             }
           ]
         },
         {
-          "name": "Head Coordinators & Coordinators",
+          "name": "String Jams",
           "members": [
             {
               "id": "v1",
-              "name": "Shib Shankar Das",
-              "post": "",
-              "img": "/TeamImages/shib.jpg",
-              "insta": "https://www.instagram.com/shib_sankar_das_721/",
-              "linkedin": "https://www.linkedin.com/in/shib-sankar-das-a635b6253/"
+              "name": "B Aditya",
+              "post": "Lead",
+              "img": "/team/aditya.jpeg",
+              "insta": "",
+              "linkedin": ""
             },
             {
               "id": "v2",
-              "name": "Dipak Biswakarma",
-              "post": "",
-              "img": "/TeamImages/dipak.jpg",
+              "name": "Sudeshna Mahanta",
+              "post": "Lead",
+              "img": "/team/stringjams.jpeg",
+              "insta": "",
+              "linkedin": ""
+            }
+          ]
+        },
+        {
+          "name": "Ramp Rhythms",
+          "members": [
+            {
+              "id": "c1",
+              "name": "Aniket Mishra",
+              "post": "Lead",
+              "img": "/team/aniket.jpeg",
               "insta": "",
               "linkedin": ""
             },
             {
-              "id": "v3",
-              "name": "Arkaprava Dutta",
-              "post": "",
-              "img": "/TeamImages/Arkaprava.jpg",
-              "insta": "https://www.instagram.com/_arka_prava_/",
-              "linkedin": "https://www.linkedin.com/in/arkapravadutta/"
-            },
-            {
-              "id": "v4",
-              "name": "Anshu Sain",
-              "post": "",
-              "img": "/TeamImages/Anshu.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v5",
-              "name": "Md Touheed Nawaz",
-              "post": "",
-              "img": "/TeamImages/unknown.png",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v6",
-              "name": "Debdeep Mahapatra",
-              "post": "",
-              "img": "/TeamImages/DEBDEEP.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v7",
-              "name": "Shayeri Ghosh",
-              "post": "",
-              "img": "/TeamImages/shayeri.jpg",
-              "insta": "https://www.instagram.com/its_miss_leo_18?igsh=MTU2bnJtZWIwa3FkMw==",
-              "linkedin": "https://www.linkedin.com/in/shayeri-ghosh-92777b230"
-            },
-            {
-              "id": "v8",
-              "name": "Lahari Das Chakladar",
-              "post": "",
-              "img": "/TeamImages/lahari.jpg",
-              "insta": "https://www.instagram.com/candidlyurs__?igsh=MThsMjZqamJiemJrYQ==",
-              "linkedin": "https://www.linkedin.com/in/lahari-das-893670268"
-            },
-            {
-              "id": "v9",
-              "name": "koushani Bhowmik",
-              "post": "",
-              "img": "/TeamImages/Koushani.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v10",
-              "name": "Jyotirmoy Mandal",
-              "post": "",
-              "img": "/TeamImages/JYOTIRMOY.jpg",
-              "insta": "https://www.instagram.com/_jyotirmoy02?igsh=MW91ZGdvbWdyNjdweA==",
-              "linkedin": "http://www.linkedin.com/in/jyotirmoy-mandal-7a07a4362"
-            },
-            {
-              "id": "v11",
-              "name": "Sneha Dutta",
-              "post": "",
-              "img": "/TeamImages/sneha.jpg",
-              "insta": "https://www.instagram.com/snehaadutta?igsh=MTdsdm1ya3p0MmdhNw==",
-              "linkedin": "https://www.linkedin.com/in/sneha-dutta-322080286"
-            },
-            {
-              "id": "v12",
-              "name": "Soham Kar",
-              "post": "",
-              "img": "/TeamImages/soham.jpg",
-              "insta": "https://www.instagram.com/sohamkar_sk/",
-              "linkedin": "https://www.linkedin.com/in/soham-kar-?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-              "id": "v13",
-              "name": "Shreya Sarkar",
-              "post": "",
-              "img": "/TeamImages/shreya.jpg",
-              "insta": "https://www.instagram.com/swala.laaa?igsh=NjR5OXBlZHFncDZv",
-              "linkedin": "https://www.linkedin.com/in/shreya-sarkar-7a6577275"
-            },
-            {
-              "id": "v14",
-              "name": "Soumarit Pramanik",
-              "post": "",
-              "img": "/TeamImages/soumorit.jpg",
-              "insta": "https://www.instagram.com/soumoritp?igsh=Zmw0Mjk5ZGJvaGpo",
-              "linkedin": "https://www.linkedin.com/in/soumorit-pramanik-a06736267"
-            },
-            {
-              "id": "v15",
-              "name": "Yubraj Sharma",
-              "post": "",
-              "img": "/TeamImages/yubraj.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v16",
-              "name": "Arshad Khan",
-              "post": "",
-              "img": "/TeamImages/arshad.jpg",
-              "insta": "https://www.instagram.com/arshadkh162003?igsh=ZmpkejE4cW1kdHdh",
-              "linkedin": "https://www.linkedin.com/in/arshadkhan16"
-            },
-            {
-              "id": "v17",
-              "name": "Remita Chakraborty",
-              "post": "",
-              "img": "/TeamImages/remita.jpg",
-              "linkedin": "https://www.linkedin.com/in/remita-chakraborty-697495303"
-            },
-            {
-              "id": "v18",
-              "name": "Roopam Satapathi",
-              "post": "",
-              "img": "/TeamImages/roopam.png",
-              "insta": "https://www.instagram.com/its_me_roopam_here?igsh=MWZuMnk1djRyNGl4Mg==",
-              "linkedin": "https://www.linkedin.com/in/roopamsatapathi"
-            },
-            {
-              "id": "v19",
-              "name": "Soumyadeep Kundu",
-              "post": "",
-              "img": "/TeamImages/soumyadeep.jpg",
-              "insta": "https://www.instagram.com/_.soumyx._?igsh=eXRjMXgwbWI4Zmx6",
-              "linkedin": "https://www.linkedin.com/in/soumyadeep-kundu-aa0b51265"
-            },
-            {
-              "id": "v20",
-              "name": "Anshuli Arya",
-              "post": "",
-              "img": "/TeamImages/anshuli.jpg",
-              "insta": "https://www.instagram.com/shu.llulu/",
-              "linkedin": "https://www.linkedin.com/in/anshuli-arya-8aa270270"
-            },
-            {
-              "id": "v21",
-              "name": "Subhro Mohanta",
-              "post": "",
-              "img": "/TeamImages/subhro.jpg",
-              "insta": "https://www.instagram.com/just.subhro?igsh=MTcycm43Nzc5NTlneg==",
-              "linkedin": "https://www.linkedin.com/in/subhro-mohanta/"
-            },
-            {
-              "id": "v22",
-              "name": "Vivek Kushal Chakraborty",
-              "post": "",
-              "img": "/TeamImages/vivek.jpg",
-              "insta": "",
-              "linkedin": "https://www.linkedin.com/in/vivekkushalch/"
-            },
-            {
-              "id": "v23",
-              "name": "Jeet Ghosh",
-              "post": "",
-              "img": "/TeamImages/jali.jpg",
-              "insta": "",
-              "linkedin": "https://www.linkedin.com/in/jeet-ghosh-tech/"
-            },
-            {
-              "id": "v24",
-              "name": "Ritisha Ghosh",
-              "post": "",
-              "img": "/TeamImages/ritisha.jpg",
-              "insta": "https://www.instagram.com/_ritisha_ghosh_",
-              "linkedin": "https://in.linkedin.com/in/ritisha-ghosh-510rg2004"
-            },
-            {
-              "id": "v25",
-              "name": "Abhinandan Ghosh",
-              "post": "",
-              "img": "/TeamImages/abhinandan.jpg",
-              "linkedin": "https://www.linkedin.com/in/abhinandan2207/"
-            },
-            {
-              "id": "v26",
-              "name": "Abir Dey",
-              "post": "",
-              "img": "/TeamImages/abir.jpg",
-              "insta": "https://www.instagram.com/here_abir?igsh=MTN3ejh4ZnR0MWh0cA==",
-              "linkedin": "https://www.linkedin.com/in/abirdey2004"
-            },
-            {
-              "id": "v26",
-              "name": "Amit Mondal",
-              "post": "",
-              "img": "/TeamImages/amit.jpg",
-              "insta": "https://www.instagram.com/amit14_02",
-              "linkedin": "https://www.linkedin.com/in/amit-mondal-578618218/"
-            },
-            {
-              "id": "v27",
-              "name": "Krishnendu Maity",
-              "post": "",
-              "img": "/TeamImages/krishnendu.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v28",
-              "name": "Moubani Karmakar",
-              "post": "",
-              "img": "/TeamImages/moubani.jpg",
-              "insta": "https://www.instagram.com/imou_rimi?igsh=bmlpbmpoZGRwYXpv",
-              "linkedin": "https://www.linkedin.com/in/moubani-karmakar-7bb7bb362/"
-            },            
-            {
-              "id": "v31",
-              "name": "Koushik Pramanik",
-              "post": "",
-              "img": "/TeamImages/koushik.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v32",
-              "name": "Jeet Santra",
-              "post": "",
-              "img": "/TeamImages/jeetSantra.jpg",
-              "insta": "https://www.instagram.com/iam__jeet_1603?igsh=MmtwcDl6cHlrNTFj",
-              "linkedin": "https://www.linkedin.com/in/jeet-santra-9919b536a/"
-            },
-            {
-              "id": "v33",
-              "name": "Shibayan Roy",
-              "post": "",
-              "img": "/TeamImages/Shibayan.jpg",
-              "insta": "https://www.instagram.com/shibayan30?igsh=Y3h0bmU4d2h4YXF0&utm_source=ig_contact_invite",
-              "linkedin": "https://www.linkedin.com/in/shibayan-roy-3b1482349?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-              "id": "v34",
-              "name": "Ayushman Dutta Gupta",
-              "post": "",
-              "img": "/TeamImages/ayushman.jpg",
-              "insta": "https://www.instagram.com/ayushmaandattagupta/profilecard/?igsh=MWs1c2Y0bWpvbWN3cA==",
-              "linkedin": "https://www.linkedin.com/in/ayushmaan-dgupta-365134315/"
-            },
-            {
-              "id": "v35",
-              "name": "Arghya Jana",
-              "post": "",
-              "img": "/TeamImages/arghya.jpg",
-              "insta": "https://www.instagram.com/1rghya?igsh=MTRxdmN0OHRlamY3OQ=="
-            },
-            {
-              "id": "v36",
-              "name": "Sandhita Saha",
-              "post": "",
-              "img": "/TeamImages/sandita.jpg",
-              "insta": "",
-              "linkedin": "https://www.linkedin.com/in/sandhita-saha-58371b303"
-            },
-            {
-              "id": "v37",
-              "name": "Monoshiz Rai",
-              "post": "",
-              "img": "/TeamImages/imon.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v38",
-              "name": "Prince Gupta",
-              "post": "",
-              "img": "/TeamImages/prince.jpg",
-              "insta": "https://www.instagram.com/_slick__soul?utm_source=qr&igsh=ZWVrZDYyaDZyaXpz",
-              "linkedin": "https://www.linkedin.com/in/prince-gupta-5aa833227"
-            },
-            {
-              "id": "v39",
-              "name": "Sumit Shaw",
-              "post": "",
-              "img": "/TeamImages/sumit.jpg",
-              "insta": "",
-              "linkedin": ""
-            },
-            {
-              "id": "v40",
-              "name": "Jyotish Yadav",
-              "post": "",
-              "img": "/TeamImages/jyotish.jpg",
+              "id": "c2",
+              "name": "Gayatree Mishra",
+              "post": "Lead",
+              "img": "/team/ramp.jpeg",
               "insta": "",
               "linkedin": ""
             }
