@@ -6,7 +6,7 @@ import {
   FaFacebook,
   FaEnvelope,
 } from "react-icons/fa";
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -29,13 +29,19 @@ function Team({ tabs }) {
 
   return (
     <div className="relative min-h-screen w-screen overflow-hidden bg-[#004aad] text-white">
-      <Head>
-        <title>AAVAHAN’26 | Team</title>
-        <meta
-          name="description"
-          content="Meet the AAVAHAN'26 organizing team and crew members."
-        />
-      </Head>
+      <Seo
+        title="Organizing Team & Crew"
+        description="Meet the AAVAHAN'26 organizing committee, student coordinators and technical crew from SUIIT who manage the cultural fest events, production and promotions."
+        keywords={[
+          "Aavahan 2026 team",
+          "Aavahan organizing committee",
+          "SUIIT Aavahan core team",
+          "Aavahan student coordinators",
+          "Aavahan SUIIT crew",
+          "SUIIT cultural fest organizing team",
+        ]}
+        type="website"
+      />
 
       {/* Navbar */}
       <Header id="navbar" />

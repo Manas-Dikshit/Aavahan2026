@@ -1,5 +1,5 @@
-import Head from "next/head";
 import React from "react";
+import Seo from "@/components/Seo";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import gsap from "gsap";
@@ -32,9 +32,28 @@ export default function Contact(props) {
 
   return (
     <div className="relative min-h-screen w-screen overflow-hidden bg-[#004aad] text-white">
-      <Head>
-        <title>AAVAHAN’26 | Contact Us</title>
-      </Head>
+      <Seo
+        title="Contact & Reach Us"
+        description="Contact the AAVAHAN'26 organizing team at SUIIT, Burla for sponsorships, collaborations, registrations and general queries about the cultural fest."
+        keywords={[
+          "Aavahan contact",
+          "Aavahan 2026 contact details",
+          "SUIIT Aavahan helpline",
+          "Aavahan SUIIT email",
+          "Aavahan SUIIT Instagram",
+          "SUIIT cultural fest contact number",
+          "Aavahan sponsorship contact",
+        ]}
+        type="website"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact AAVAHAN'26 Organizing Team",
+          url: undefined,
+          description:
+            "Official contact page for AAVAHAN'26, the cultural fest of SUIIT, Burla.",
+        }}
+      />
 
       {/* Navbar */}
       <Header id="Navbar" />

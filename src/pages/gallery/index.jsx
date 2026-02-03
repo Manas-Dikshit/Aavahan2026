@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import CircularGallery from "@/components/CircularGallary";
 
 if (typeof window !== "undefined") {
@@ -93,10 +93,19 @@ export default function Gallery() {
             className="min-h-screen"
             style={{ backgroundColor: "#004aad" }}
         >
-            <Head>
-                <title>AAVAHAN 2026 Gallery</title>
-                    <meta name="description" content="Explore the gallery of AAVAHAN26 2025 - memorable moments from our cultural fest" />
-            </Head>
+            <Seo
+                title="Gallery & Fest Moments"
+                description="View photos and highlights from AAVAHAN'26 at SUIIT – workshops, events and behind-the-scenes moments from the cultural fest."
+                keywords={[
+                    "Aavahan 2026 gallery",
+                    "Aavahan fest photos",
+                    "SUIIT Aavahan pictures",
+                    "SUIIT cultural fest gallery",
+                    "Aavahan workshop photos",
+                    "Aavahan event highlights",
+                ]}
+                type="website"
+            />
 
             <Header />
 

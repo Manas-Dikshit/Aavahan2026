@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -30,9 +30,48 @@ const Home = () => {
 
   return (
     <div className="h-fit" style={{backgroundColor: "#004aad"}}>
-      <Head>
-        <title>AAVAHAN 2K26</title>
-      </Head>
+      <Seo
+        title="Home - SUIIT Cultural Fest"
+        description="Experience AAVAHAN'26, the annual cultural fest of SUIIT, Burla featuring music, dance, drama, fashion, gaming, workshops and competitions for students across Odisha."
+        keywords={[
+          "Aavahan 2026 fest",
+          "Aavahan 2K26",
+          "Aavahan SUIIT cultural fest",
+          "SUIIT Aavahan 2026",
+          "SUIIT cultural festival Burla",
+          "Sambalpur University Aavahan fest",
+          "Odisha college cultural fest",
+          "Aavahan registration",
+          "Aavahan events list",
+          "Aavahan SUIIT Burla Odisha",
+        ]}
+        type="website"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Event",
+          name: "AAVAHAN'26 - SUIIT Cultural Fest",
+          description:
+            "AAVAHAN'26 is the annual cultural fest of SUIIT (Sambalpur University Institute of Information Technology), Burla, featuring cultural performances, competitions, workshops and pro-shows.",
+          location: {
+            "@type": "CollegeOrUniversity",
+            name: "Sambalpur University Institute of Information Technology (SUIIT)",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "SUIIT Campus, Jyoti Vihar",
+              addressLocality: "Burla",
+              addressRegion: "Odisha",
+              addressCountry: "IN",
+            },
+          },
+          organizer: {
+            "@type": "CollegeOrUniversity",
+            name: "Sambalpur University Institute of Information Technology (SUIIT)",
+          },
+          eventAttendanceMode:
+            "https://schema.org/OfflineEventAttendanceMode",
+          eventStatus: "https://schema.org/EventScheduled",
+        }}
+      />
 
       <Header id="navbar" />
 

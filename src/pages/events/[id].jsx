@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import fsPromises from "fs/promises";
 import path from "path";
 import { gsap } from "gsap";
@@ -32,9 +32,51 @@ function EventsDetails(props) {
 
   return (
     <>
-      <Head>
-        <title>Event Details</title>
-      </Head>
+      <Seo
+        title={`${props.title} - Event Details`}
+        description={
+          props.description ||
+          `${props.title} - an official AAVAHAN'26 event at SUIIT, Burla with details about rules, coordinators, date, time and venue.`
+        }
+        keywords={[
+          props.title,
+          `${props.title} Aavahan 2026`,
+          `${props.title} Aavahan SUIIT`,
+          "Aavahan 2026 event details",
+          "SUIIT cultural fest event",
+          "Aavahan competition",
+          "Aavahan workshop",
+        ]}
+        type="event"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Event",
+          name: props.title,
+          description: props.description,
+          eventAttendanceMode:
+            "https://schema.org/OfflineEventAttendanceMode",
+          eventStatus: "https://schema.org/EventScheduled",
+          location: {
+            "@type": "CollegeOrUniversity",
+            name: "Sambalpur University Institute of Information Technology (SUIIT)",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "SUIIT Campus, Jyoti Vihar",
+              addressLocality: "Burla",
+              addressRegion: "Odisha",
+              addressCountry: "IN",
+            },
+          },
+          organizer: {
+            "@type": "Organization",
+            name: "AAVAHAN'26 Organizing Committee",
+          },
+          startDate:
+            props.date && !isNaN(Date.parse(props.date))
+              ? new Date(props.date).toISOString()
+              : undefined,
+        }}
+      />
       <section>
         <Header />
         <div className="h-fit pt-24 p-6 bg-black text-white">

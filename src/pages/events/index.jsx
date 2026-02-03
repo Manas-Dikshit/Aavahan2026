@@ -1,5 +1,5 @@
 "use client";
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -18,9 +18,22 @@ export default function EventsPage({ events }) {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-[#004aad] text-white">
-      <Head>
-        <title>AAVAHAN’26 • Events</title>
-      </Head>
+      <Seo
+        title="Events Schedule & Competitions"
+        description="Browse all AAVAHAN'26 events at SUIIT – including cultural performances, music, dance, drama, literary events, gaming tournaments, workshops and more with dates, venues and registration links."
+        keywords={[
+          "Aavahan 2026 events",
+          "Aavahan 2026 event list",
+          "Aavahan events schedule",
+          "SUIIT Aavahan competitions",
+          "SUIIT cultural fest events",
+          "Aavahan workshops and competitions",
+          "SUIIT fest events Burla",
+          "Aavahan technical events",
+          "Aavahan cultural events",
+        ]}
+        type="website"
+      />
 
       {/* Navbar */}
       <Header id="navbar" />

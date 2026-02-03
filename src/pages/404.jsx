@@ -1,9 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Seo from "@/components/Seo";
 
 export default function NotFound() {
   return (
+    <>
+      <Seo
+        title="Page Not Found (404)"
+        description="The page you are looking for on the AAVAHAN'26 SUIIT cultural fest site does not exist. Go back to the home page to explore events, gallery and more."
+        noIndex
+        type="website"
+      />
     <div className="flex flex-col md:flex-row bg-soothing_black items-center justify-center h-screen w-screen p-4 text-white">
       <Image
         src="/never-gonna.gif"
@@ -28,5 +36,6 @@ export default function NotFound() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Update this to your production domain
+Sitemap: https://aavahan-suiit-2k26.netlify.app/sitemap.xml
