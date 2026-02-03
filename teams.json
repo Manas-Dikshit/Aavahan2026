@@ -49,6 +49,14 @@
               "img": "/team/Soubhagya.jpeg",
               "linkedin": "",
               "insta": ""
+            },
+            {
+              "id": "tf3",
+              "name": "Sourav Ranjan Behera",
+              "post": "Organizing Lead",
+              "img": "/team/sourav.jpeg",
+              "linkedin": "",
+              "insta": ""
             }
           ]
         },
@@ -57,9 +65,9 @@
           "members": [
             {
               "id": "c1",
-              "name": "Vivek Kushal Chakraborty",
+              "name": "Rajj",
               "post": "",
-              "img": "/TeamImages/vivek.jpg",
+              "img": "/TeamImages/rajj.jpg",
               "insta": "",
               "linkedin": ""
             },
