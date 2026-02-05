@@ -3,14 +3,122 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Seo from "@/components/Seo";
+import { siteMetadata, buildAbsoluteUrl } from "@/utilities/seo-config";
 import fsPromises from "fs/promises";
 import path from "path";
 import { gsap } from "gsap";
+
+function buildEventDateTimes(dateStr, timeStr) {
+  if (!dateStr) {
+    return { startDateTime: null, endDateTime: null };
+  }
+
+  let startDateTime = null;
+  let endDateTime = null;
+
+  if (timeStr) {
+    const parts = timeStr.split(/–|—|-/);
+    const startRaw = parts[0] && parts[0].trim();
+    const endRaw = parts[1] && parts[1].trim();
+
+    if (startRaw) {
+      const parsedStart = Date.parse(`${dateStr} ${startRaw}`);
+      if (!isNaN(parsedStart)) {
+        startDateTime = new Date(parsedStart).toISOString();
+      }
+    }
+
+    if (endRaw) {
+      const parsedEnd = Date.parse(`${dateStr} ${endRaw}`);
+      if (!isNaN(parsedEnd)) {
+        endDateTime = new Date(parsedEnd).toISOString();
+      }
+    }
+  }
+
+  if (!startDateTime) {
+    const parsedDateOnly = Date.parse(dateStr);
+    if (!isNaN(parsedDateOnly)) {
+      startDateTime = new Date(parsedDateOnly).toISOString();
+    }
+  }
+
+  if (!endDateTime && startDateTime) {
+    endDateTime = startDateTime;
+  }
+
+  return { startDateTime, endDateTime };
+}
 
 function EventsDetails(props) {
   const card = React.useRef(null);
   const title = React.useRef(null);
   const subtitle = React.useRef(null);
+
+  const eventUrl = buildAbsoluteUrl(`/events/${props.id}`);
+  const eventImageUrl = props.image
+    ? props.image.startsWith("http")
+      ? props.image
+      : buildAbsoluteUrl(props.image)
+    : buildAbsoluteUrl("/Cultural Logo.svg");
+
+  const { startDateTime, endDateTime } = buildEventDateTimes(
+    props.date,
+    props.time
+  );
+
+  const offers = {
+    "@type": "Offer",
+    url:
+      props.reglink && props.reglink !== "Coming Soon"
+        ? props.reglink.trim()
+        : eventUrl,
+    price: "0",
+    priceCurrency: "INR",
+    availability: "https://schema.org/InStock",
+  };
+
+  const eventSchema = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: props.title,
+    description:
+      props.description ||
+      `${props.title} - an official AAVAHAN'26 event at SUIIT, Burla with details about rules, coordinators, date, time and venue.`,
+    image: [eventImageUrl],
+    url: eventUrl,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "CollegeOrUniversity",
+      name: "Sambalpur University Institute of Information Technology (SUIIT)",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "SUIIT Campus, Jyoti Vihar",
+        addressLocality: "Burla",
+        addressRegion: "Odisha",
+        addressCountry: "IN",
+      },
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "AAVAHAN'26 Organizing Committee",
+      url: siteMetadata.url,
+    },
+    performer: {
+      "@type": "Organization",
+      name: "Students of SUIIT, Burla",
+    },
+    offers,
+  };
+
+  if (startDateTime) {
+    eventSchema.startDate = startDateTime;
+  }
+
+  if (endDateTime) {
+    eventSchema.endDate = endDateTime;
+  }
 
   React.useEffect(() => {
     gsap.fromTo(
@@ -48,34 +156,7 @@ function EventsDetails(props) {
           "Aavahan workshop",
         ]}
         type="event"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Event",
-          name: props.title,
-          description: props.description,
-          eventAttendanceMode:
-            "https://schema.org/OfflineEventAttendanceMode",
-          eventStatus: "https://schema.org/EventScheduled",
-          location: {
-            "@type": "CollegeOrUniversity",
-            name: "Sambalpur University Institute of Information Technology (SUIIT)",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "SUIIT Campus, Jyoti Vihar",
-              addressLocality: "Burla",
-              addressRegion: "Odisha",
-              addressCountry: "IN",
-            },
-          },
-          organizer: {
-            "@type": "Organization",
-            name: "AAVAHAN'26 Organizing Committee",
-          },
-          startDate:
-            props.date && !isNaN(Date.parse(props.date))
-              ? new Date(props.date).toISOString()
-              : undefined,
-        }}
+        structuredData={eventSchema}
       />
       <section>
         <Header />
@@ -224,6 +305,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
+      id: post.id,
       title: post.title,
       image: post.img,
       content: post.content,
