@@ -134,7 +134,7 @@
       ]
     },
     {
-      "name": "DEV TEAM",
+      "name": "DEV & VISUAL MEDIA TEAM",
       "sections": [
         {
           "name": "Developers",
@@ -156,6 +156,14 @@
               "insta": "https://www.instagram.com/dev_loperrr",
               "linkedin": "https://www.linkedin.com/in/debashish608",
               "github": "https://github.com/deba608"
+            },
+            {
+              "id": "Dt3",
+              "name": "Priyambada Arya",
+              "post": "Visual Media Lead",
+              "img": "/team/arya.jpeg",
+              "insta": "https://www.instagram.com/aryaeditss_?igsh=MXJ5Y2U3aXF0dXZjNA==",
+              "linkedin": "https://www.linkedin.com/in/priyambada-arya-b224332b5?utm_source=share_via&utm_content=profile&utm_medium=member_android"
             }
           ]
         }
