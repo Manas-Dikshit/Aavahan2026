@@ -15,8 +15,8 @@ export default function MarvelMerchandise() {
   const merchRefs = useRef([]);
 
   const items = [
-    { name: "Aavahan T-shirt", image: "/3.png", price: "₹199" },
-    { name: "Aavahan Hoodie", image: "/2.png", price: "₹799" },
+    { name: "Aavahan T-shirt front", image: "/front.jpeg", price: "₹300" },
+    { name: "Aavahan T-shirt back", image: "/back.jpeg", price: "₹300" },
   ];
 
   useEffect(() => {
@@ -199,7 +199,14 @@ export default function MarvelMerchandise() {
                   </h3>
                   <p className="text-blue-200 font-bold text-2xl mt-1">{item.price}</p>
                   <button className="mt-3 bg-[#004aad] hover:bg-blue-600 text-white font-semibold px-5 py-2 rounded-md uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,74,173,0.3)] hover:shadow-[0_0_40px_rgba(0,74,173,0.6)] hover:scale-105">
-                    Buy Now
+                    <a
+                      href="https://forms.gle/dbhxyiaUZoixqxiPA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
+                    >
+                      Register Now
+                    </a>
                   </button>
                 </div>
               </div>
