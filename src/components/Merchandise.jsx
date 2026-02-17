@@ -139,9 +139,7 @@ export default function MarvelMerchandise() {
     <div
       ref={sectionRef}
       className="relative w-full min-h-screen text-white overflow-hidden py-20 flex flex-col items-center justify-center perspective"
-      style={{
-        backgroundColor: "#004aad",
-      }}
+      style={{ backgroundColor: "#004aad" }}
     >
       {/* Header */}
       <div className="relative z-20 text-center mb-16 px-6">
@@ -149,8 +147,7 @@ export default function MarvelMerchandise() {
           Marvel Collection
         </h2>
         <p className="text-blue-100 text-lg md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed">
-          Official <span className="text-blue-200 font-bold">AAVAHAN</span>{" "}
-          Merchandise — heroic, bold, and iconic.
+          Official <span className="text-blue-200 font-bold">AAVAHAN</span> Merchandise — heroic, bold, and iconic.
         </p>
       </div>
 
@@ -161,11 +158,11 @@ export default function MarvelMerchandise() {
       ></div>
 
       {/* Main layout */}
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 max-w-7xl mx-auto px-6 relative z-20 transform-gpu">
-        {/* Spider-Man */}
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 max-w-7xl mx-auto px-6 relative z-20 transform-gpu w-full">
+        {/* Spider-Man (hidden on mobile) */}
         <div
           ref={spidermanRef}
-          className="flex justify-center items-center lg:w-[380px] lg:h-[550px] transform-style-3d"
+          className="hidden sm:flex justify-center items-center lg:w-[380px] lg:h-[550px] transform-style-3d"
         >
           <Image
             src="/spider.png"
@@ -177,8 +174,8 @@ export default function MarvelMerchandise() {
           />
         </div>
 
-        {/* Merchandise Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 flex-1 justify-center items-center">
+        {/* Merchandise Grid (always visible, but on mobile, only this is shown) */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 flex-1 justify-center items-center">
           {items.map((item, i) => (
             <div
               key={i}
@@ -213,6 +210,17 @@ export default function MarvelMerchandise() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Spider-Man (mobile only, above merchandise) */}
+      <div className="flex sm:hidden justify-center items-center w-full mt-8 mb-4">
+        <Image
+          src="/spider.png"
+          alt="Spider-Man"
+          width={240}
+          height={320}
+          className="w-[180px] h-auto"
+        />
       </div>
 
       {/* Gradient bar */}
