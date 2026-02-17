@@ -10,6 +10,7 @@ function Hero() {
   const subtitle = useRef(null);
   const subtitle2 = useRef(null);
   const date = useRef(null);
+  const poster = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -19,7 +20,19 @@ function Hero() {
         .fromTo(title1.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, "-=0.8")
         .fromTo(subtitle.current, { opacity: 0, y: 80 }, { opacity: 1, y: 0 }, "-=0.6")
         .fromTo(subtitle2.current, { opacity: 0, y: 60 }, { opacity: 1, y: 0 }, "-=0.5")
-        .fromTo(date.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, "-=0.4");
+        .fromTo(date.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, "-=0.4")
+        // Minimal fade-in animation for poster
+        .fromTo(
+          poster.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            ease: "power1.out",
+            delay: 0.2,
+          },
+          "-=0.8"
+        );
     }, root);
 
     return () => ctx.revert();
@@ -89,7 +102,7 @@ function Hero() {
           </a>
         </div>
 
-        {/* Poster Image
+        {/* Poster Image // ✅ */}
         <div ref={poster} className="z-10 order-1 lg:order-2 opacity-0">
           <Image
             src="/club-poster-cultural.png"
@@ -99,7 +112,7 @@ function Hero() {
             className="w-[260px] sm:w-[340px] md:w-[420px] lg:w-[460px] object-contain rounded-2xl shadow-[0_0_40px_rgba(255,255,255,0.15)] border border-white/20 hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:scale-[1.03] transition-transform duration-300"
             draggable="false"
           />
-        </div> */}
+        </div> 
       </div>      
     </section>
   );
